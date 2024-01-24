@@ -6,9 +6,8 @@ This browser based web application to ...
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...
-* go e is Kyle! I am excited to start this journey of creating a web application!
+* Hi,My name is Kyle! I am excited to start this journey of creating a web application!
 * Hi, my name is Gem! I am happy to start this journey of creating a web application!!
-kkk
 * ...
 
 ## 3. Technologies and Resources Used
