@@ -9,7 +9,7 @@ List team members and/or short bio's here...
 * go e is Kyle! I am excited to start this journey of creating a web application!
 * Hi, my name is Gem! I am happy to start this journey of creating a web application!!
 kkk
-* ...
+* Hi, my name is Aleks! I am happy to start this journey of creating a web application!!
 
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
