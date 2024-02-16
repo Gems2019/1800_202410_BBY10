@@ -20,7 +20,7 @@
 
 .btn-primary {
   color: #b9d8c2; /* Lightest shade for text */
-  font-size: 150%;
+  font-size: 100%;
   background-color: #9ac2c9; /* Dark green for primary button background */
   border-color: #ffcb47; /* Reddish-brown for border to use as accent */
   border-width: thick;
@@ -32,5 +32,5 @@ body {
 
 .navbar-brand{
   font-family: 'Caveat', cursive; /*change the font name for what you have*/
-  font-size: 2.25rem;
+  font-size: 1.8 rem;
 }

@@ -11,7 +11,7 @@
 
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
@@ -32,43 +32,79 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./images/home1.webp" height="36">
                 Rental Management System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Your helper!</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login as Tenants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login as Landlords</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Support
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#">Legal advice</a></li>
+                                <li><a class="dropdown-item" href="#">Chat bot</a></li>
+                                <li><a class="dropdown-item" href="#">Customer service</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                              
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
 
+
+
     <!-- Stuff for body goes here -->
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Welcome to Rental Management System!</h1>
-          <p class="col-md-8 fs-4">Ready to streamline your property management? Sign up now for a free consultation!</p>
+            <h1 class="display-5 fw-bold">Welcome to Rental Management System!</h1>
+            <p class="col-md-8 fs-4">Ready to streamline your property management? Sign up now for a free consultation!
+            </p>
 
-          <button class="btn btn-outline-success" type="button">Login/Signup</button>
+            <button class="btn btn-outline-success" type="button">Login/Signup</button>
 
-          <!-- Add an onclick attribute to define click event handler -->
-          <!-- <button onclick="window.location.href='login.html'" class="btn btn-primary btn-lg" type="button">Login/Signup</button> -->
+            <!-- Add an onclick attribute to define click event handler -->
+            <!-- <button onclick="window.location.href='login.html'" class="btn btn-primary btn-lg" type="button">Login/Signup</button> -->
         </div>
-  </div>
+    </div>
 
 
     <!---------------------------------------------->
