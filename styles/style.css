@@ -28,9 +28,19 @@
 
 body {
   background-color: #b9d8c2; /* Lightest shade for body background to follow the 60% rule */
+
 }
+
 
 .navbar-brand{
   font-family: 'Caveat', cursive; /*change the font name for what you have*/
   font-size: 1.8 rem;
+}
+.footer { 
+  padding: 10px;
+  width: 100%;
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 10;
 }
