@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap Library CSS CDN go here -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -13,6 +15,25 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 </head>
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .founding-story-card {
+    background: #f8f9fa;
+    /* Light grey background */
+    border: none;
+    /* Removes the default card border */
+    border-radius: 0.5rem;
+    /* Slightly rounded corners for the card */
+  }
+
+  .founding-story-card .card-body {
+    padding: 2rem;
+    /* Spacious padding for the card content */
+  }
+</style>
 
 <body>
 
@@ -56,20 +77,20 @@
   <section class="team-section text-center py-5">
     <div class="container">
       <h2 class="mb-5">Team Members</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <!-- Team Member 1 -->
         <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-          <img src="/images/kyle_image.jpeg"  class="rounded-circle mb-3 w-50 h-50"  alt="Team Member 1">
+          <img src="/images/kyle_image.jpeg" class="rounded-circle mb-3 w-50 h-50" alt="Team Member 1">
           <h5>Member 1</h5>
           <p>Role: Software Developer</p>
         </div>
         <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-          <img src="/images/Gem.JPG"  class="rounded-circle mb-3 w-50 h-50"  alt="Team Member 1">
+          <img src="/images/Gem.JPG" class="rounded-circle mb-3 w-50 h-50" alt="Team Member 1">
           <h5>Gem</h5>
           <p>Role: Software Developer</p>
         </div>
         <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
-          <img src="/images/Alex_img.jpg"  class="rounded-circle mb-3 w-50 h-50"  alt="Team Member 1">
+          <img src="/images/Alex_img.jpg" class="rounded-circle mb-3 w-50 h-50" alt="Team Member 1">
           <h5>Alex</h5>
           <p>Role: Software Developer</p>
         </div>
@@ -77,28 +98,37 @@
     </div>
   </section>
 
-<section class="founding-story py-5">
+  <section class="founding-story py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card founding-story-card">
-                    <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Our Founding Story</h2>
-                        <p class="card-text">
-                            Our journey began in [2024, out of a personal need to address the challenges we faced as landlords. We noticed a common thread of issues that many landlords and property managers encounter, and we set out to create a solution that would not only solve our problems but also serve the larger community.
-                        </p>
-                        <p class="card-text">
-                            We were a small team with a big vision: to simplify property management and make the landlord-tenant relationship seamless and stress-free. Through countless hours of development, user feedback, and iterative improvements, we launched [Product Name], a comprehensive tenant management system that empowers landlords and property managers to [mention key solutions or benefits].
-                        </p>
-                        <p class="card-text">
-                            Today, we stand proud as a company that has touched the lives of [number of users or clients], transforming the way property management is conducted. We are driven by our mission to [Company's Mission], and we continue to innovate and improve our platform to meet the dynamic needs of the industry. We're not just a company; we're a community that stands by every landlord, every tenant, every home.
-                        </p>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card founding-story-card">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4">Our Founding Story</h2>
+              <p class="card-text">
+                Our journey began in [2024, out of a personal need to address the challenges we faced as landlords. We
+                noticed a common thread of issues that many landlords and property managers encounter, and we set out to
+                create a solution that would not only solve our problems but also serve the larger community.
+              </p>
+              <p class="card-text">
+                We were a small team with a big vision: to simplify property management and make the landlord-tenant
+                relationship seamless and stress-free. Through countless hours of development, user feedback, and
+                iterative improvements, we launched [Product Name], a comprehensive tenant management system that
+                empowers landlords and property managers to [mention key solutions or benefits].
+              </p>
+              <p class="card-text">
+                Today, we stand proud as a company that has touched the lives of [number of users or clients],
+                transforming the way property management is conducted. We are driven by our mission to [Company's
+                Mission], and we continue to innovate and improve our platform to meet the dynamic needs of the
+                industry. We're not just a company; we're a community that stands by every landlord, every tenant, every
+                home.
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
 
   <section class="stats-section bg-light py-5">
