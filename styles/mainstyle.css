@@ -1,21 +1,19 @@
+
+
 body {
-    padding-top: 20px;
-}
-.header-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-}
-.header-subtitle {
-    font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-.cta-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-}
-.info-text {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .founding-story-card {
+    background: #f8f9fa;
+    /* Light grey background */
+    border: none;
+    /* Removes the default card border */
+    border-radius: 0.5rem;
+    /* Slightly rounded corners for the card */
+  }
+
+  .founding-story-card .card-body {
+    padding: 2rem;
+    /* Spacious padding for the card content */
+  }
