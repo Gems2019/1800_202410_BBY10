@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Tenant Management System</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<!-- Boostrap Library JS CDN  go here -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
       <a class="navbar-brand" href="#">Tenant Management</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">About</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#">Landlords</a>
+          <a class="nav-link" href="#">Renters</a>
+          <a class="nav-link active" href="#">About</a>
+          <a class="nav-link" href="#">Contact</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Support
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Legal advice</a></li>
+              <li><a class="dropdown-item" href="#">Chat bot</a></li>
+              <li><a class="dropdown-item" href="#">Customer service</a></li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
 
-  <section class="about-section py-5">
+  <header class="bg-primary text-white text-center py-5">
+    <h1>A better way to landlord, built by a #bebetter version of you.</h1>
+    <a href="#" class="btn btn-light mt-3">Join Us Now</a>
+  </header>
+
+  <section class="team-section text-center py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>About Our Tenant Management System</h2>
-                <p>This Tenant Management System is designed to simplify the management of residential properties. It streamlines operations such as tenant tracking, rent management, maintenance requests, and more, allowing landlords and property managers to focus on providing the best service to their tenants.</p>
-            </div>
-            <div class="col-md-6">
-                <!-- You can add an image or a video about your product here -->
-                <img src="your-image-url.jpg" class="img-fluid" alt="Responsive image">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="features-section py-5 bg-light">
-  <div class="container">
-      <h2 class="text-center mb-4">Key Features</h2>
+      <h2 class="mb-5">Team Members</h2>
       <div class="row">
-          <!-- Feature 1 -->
-          <div class="col-md-4">
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title">Efficient Tenant Management</h5>
-                      <p class="card-text">Easily manage tenant information, lease agreements, and payment history in one place.</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Feature 2 -->
-          <div class="col-md-4">
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title">Maintenance Request Tracking</h5>
-                      <p class="card-text">Streamline maintenance requests and communication between tenants and service providers.</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Feature 3 -->
-          <div class="col-md-4">
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class
+        <!-- Team Member 1 -->
+        <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+          <img src="team-member-1.jpg" class="rounded-circle mb-3" alt="Team Member 1">
+          <h5>Member 1</h5>
+          <p>Role</p>
+        </div>
+        <!-- Team Member 2 -->
+        <!-- Add more team members here -->
+      </div>
+    </div>
+  </section>
 
+  <section class="stats-section bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">We're a rental business in a box</h2>
+      <div class="row text-center">
+        <!-- Stat 1 -->
+        <div class="col-md-4">
+          <h3>600,000+</h3>
+          <p>Landlords Fort Collins & Denver</p>
+        </div>
+        <!-- Stat 2 -->
+        <!-- Add more stats here -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Bootstrap JS bundle with Popper -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap JS bundle with Popper -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
