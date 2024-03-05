@@ -1,79 +1,204 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap Library CSS CDN go here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!-- Boostrap Library JS CDN  go here -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
-
-    <title>Rental Listings</title>
-  </head>
-  <body>
-    <div class="container py-3">
-      <!-- Header with Back Button and Edit -->
-      <div class="row mb-4">
-        <div class="col">
-          <a href="#" class="btn btn-light mb-2">← Back</a>
-          <h1>Apartments on Broadway</h1>
-          <p>372 Broadway St, Falls Church, CO 80221</p>
-        </div>
-        <div class="col text-end">
-          <button class="btn btn-primary">Edit</button>
-        </div>
-      </div>
-
-      <!-- Navigation Tabs -->
-      <ul class="nav nav-tabs mb-4">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Overview</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Marketing</a>
-        </li>
-        <!-- Add other tabs here -->
-      </ul>
-
-      <!-- Active Listings Section -->
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">Active Listings</h2>
-          <div class="row row-cols-1 row-cols-md-2 g-4">
-            <!-- Listing Item -->
-            <div class="col">
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="your-image-url.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Unit A - Room 1</h5>
-                      <p class="card-text">Single Room in Amazing Apartment</p>
-                      <p class="card-text"><small class="text-muted">Listing Date: DD/MM/YYYY</small></p>
-                      <a href="#" class="btn btn-outline-secondary btn-sm">Edit Listing</a>
-                      <a href="#" class="btn btn-outline-secondary btn-sm">Manage Marketing</a>
-                      <!-- Add other buttons and information here -->
-                    </div>
-                  </div>
-                </div>
-              </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Listings with Interactive Star Rating</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="Listings.css">
+</head>
+<body class="warm-color">
+    <header class="container py-3">
+        <div class="row mb-4">
+          <div class="container py-3 main-content">
+            <div class="available-rentals-header">
+                <h2 class="text-center">Available Rentals</h2> <!-- This is the title to modify -->
             </div>
-            <!-- Repeat for other listings -->
-          </div>
+            <!-- The rest of your code for rental listings -->
         </div>
-      </div>
+    
+                
+            </div>
+           
+            </div>
+        </div>
+    </header>
 
+    <div class="container py-3 main-content">
+        <div class="available-rentals-header">
+            <h2 class="text-center"></h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4"> <!-- Changed to md-3 for three columns -->
+            <!-- Example of Rental Unit -->
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12"> <!-- Changed to full width for top to bottom layout -->
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                               <p>Unit A <br>
+                               Rooms 2 Bathrooms 2 </p>
+                               <div>
+
+                                <i class="fas fa-star star selected"></i>
+                                <i class="fas fa-star star selected"></i>
+                                <i class="fas fa-star star selected"></i>
+                                <i class="fas fa-star star"></i>
+                                <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat this structure for other units -->
+            <!-- Example for second unit -->
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <p>Unit B <br>
+                                Rooms 2 Bathrooms 2 </p>
+                                <div>
+
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star"></i>
+                                  <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example for third unit -->
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <p>Unit C <br>
+                                Rooms 2 Bathrooms 1 </p>
+                                <div>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star"></i>
+                                  <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+               <!-- Example for fourth unit -->
+               <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <p>Unit D <br>
+                                Rooms 1 Bathrooms 1 </p>
+                                <div>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                              </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example for fifth unit -->
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <p>Unit E <br>
+                                Rooms 1 Bathrooms 1    </p>
+                                <div>
+
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star"></i>
+                                  <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example for sixth unit -->
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <p>Unit F <br>
+                                Rooms 2 Bathrooms 1.5 </p>
+                                <div>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star selected"></i>
+                                  <i class="fas fa-star star"></i>
+                                  <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  </body>
+        </div>
+    </div>
+    <footer class="footer bg-primary text-white">
+      <div class="container py-4">
+          <div class="row">
+             
+  
+              <!-- Rate Your Experience Section -->
+              <div class="col-md-6 text-md-end text-center mt-4 mt-md-0">
+                 <h4>Review us</h4>
+                  <div id="rateExperience">
+                      <i class="star fas fa-star" data-value="1"></i>
+                      <i class="star fas fa-star" data-value="2"></i>
+                      <i class="star fas fa-star" data-value="3"></i>
+                      <i class="star fas fa-star" data-value="4"></i>
+                      <i class="star fas fa-star" data-value="5"></i>
+                  </div>
+                  <button id="submitRating" class="btn btn-light mt-2">Submit Rating</button>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  
+    <!-- Bootstrap and JS scripts -->
+    <script src="rating.js"></script> <!-- Make sure to link your JavaScript file here -->
+</body>
 </html>

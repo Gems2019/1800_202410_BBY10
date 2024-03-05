@@ -1,0 +1,106 @@
+/* Overall body background and font */
+body {
+    background-color: #fff5e6; /* Light warm background */
+    color: #333; /* Dark text for contrast */
+    font-family: 'Roboto', sans-serif;
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Header styling */
+header {
+    background-color: #0D6EFD; /* Blue color for header background */
+    width: 100%;
+    margin: 0;
+    padding: 20px 0; /* Adjust the vertical padding */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+    padding-top: 200px;
+}
+
+/* Styling for the Available Rentals section title */
+.available-rentals-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White color for text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    margin-bottom: 2rem; /* Add space below the header */
+    text-align: center; /* Center align the title */
+}
+
+/* Card styling for the Available Rentals and Reviews sections */
+.card {
+    background-color: #ffeedd; /* Slightly darker warm tone for card background */
+    border: none; /* Remove default border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Card title styling */
+.card-title {
+    color: #555; /* Darker text for titles for readability */
+    text-align: center; /* Center the title */
+}
+
+/* Styling for secondary buttons */
+.btn-outline-secondary {
+    border-color: #0D6EFD; /* Blue color for button borders */
+    color: #0D6EFD; /* Blue color for button text */
+}
+.btn-outline-secondary:hover {
+    background-color: #0D6EFD; /* Blue background on hover */
+    color: white; /* White text color on hover */
+}
+
+/* Star rating color adjustments */
+.text-warning {
+    color: #ffcc00; /* Bright yellow for filled stars */
+}
+.text-secondary {
+    color: #ddd; /* Light gray for empty stars, less attention-grabbing */
+}
+
+/* Padding and margins adjustments */
+.pe-md-2, .ps-md-2 {
+    padding-right: 0.5rem; /* Adjust right padding */
+    padding-left: 0.5rem; /* Adjust left padding */
+}
+
+/* Footer styling */
+/* Footer social icons */
+.footer .fa {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #333; /* Adjust color as needed */
+    background-color: #0D6EFD; /* Blue footer background */
+}
+
+
+/* Rating system styling */
+.star {
+    cursor: pointer;
+    color: #ddd; /* Default star color */
+}
+
+/* Highlighted star color */
+.star.rated {
+    color: #ffc107; /* Gold color for rated stars */
+}
+    
+ 
+
+/* Main content styling */
+.main-content {
+    flex: 1; /* Take up all available space */
+    padding-bottom: 3rem; /* Space for the footer */
+}
+
+/* Card body adjustment for layout */
+.card-body {
+    display: flex;
+    flex-direction: row; /* Align items in a row for left to right layout */
+    align-items: center; /* Align items vertically in the center */
+}
+.card-body .col-md-4, .card-body .col-md-8 {
+    flex: 1; /* Allow each section to expand */
+}
