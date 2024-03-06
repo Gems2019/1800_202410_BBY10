@@ -10,7 +10,9 @@ function writeunit() {
         city: "Vancouver",
         province: "British Columbia",
         Type: "Apartment",
-				details: "Bedroom/Bathroom: 2/2",            
+		details: "Bedroom/Bathroom: 2/2",          
+        description: "No smoking/1 small pet allowed, water included, electricity is not included.",  
+        rcost: "3200",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
@@ -19,7 +21,9 @@ function writeunit() {
         city: "Vancouver",
         province: "British Columbia",
         Type: "Basement",
-				details: "Bedroom/Bathroom: 2/1",            
+		details: "Bedroom/Bathroom: 2/1", 
+        description: "No smoking/No pets allowed, water included, electricity is not included, wash/dry included", 
+        rcost: "2850",          
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
@@ -28,15 +32,20 @@ function writeunit() {
         city: "Richmond",
         province: "British Columbia",
         level: "Apartment",
-				details: "Bedroom/Bathroom: 1/1",            
+		details: "Bedroom/Bathroom: 1/1",  
+        description: "No smoking/1 small pet allowed, hydro not included, electricity is not included.",            
+        rcost: "2300",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
         code: "unit1",
         name: "31 8th St", 
         city: "New Westminster",
-        province: "Apartment",
-        level: "unit", 
+        province: "British Columbia",
+        level: "Appartment", 
+        details: "Bedroom/Bathroom: 2/2",  
+        description: "No smoking/No pets allowed, hydro included, electricrity included, heating not included",
+        rcost: "2800",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
@@ -45,6 +54,9 @@ function writeunit() {
         city: "Surrey",
         province: "British Columbia",
         level: "Basement",
+        details: "Bedroom/Bathroom: 1/1",  
+        description: "No smoking/No pets allowed, hydro included, electricrity included, heating included",
+        rcost: "1900",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
@@ -53,6 +65,9 @@ function writeunit() {
         city: "Burnaby",
         province: "British Columbia",
         level: "GuestHouse",
+        details: "Bedroom/Bathroom: 1/1",  
+        description: "No smoking/No pets allowed, hydro no included, internet included, heating not included, electricity not included",
+        rcost: "2100",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
 }
