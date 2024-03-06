@@ -14,7 +14,7 @@ function writeunit() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
-        code: "unit2",
+        code: "unit1",
         name: "2050 W 4th Ave", 
         city: "Vancouver",
         province: "British Columbia",
@@ -23,7 +23,7 @@ function writeunit() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
-        code: "unit3",
+        code: "unit1",
         name: "12500 Bridgeport Rd", 
         city: "Richmond",
         province: "British Columbia",
@@ -32,7 +32,7 @@ function writeunit() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
     unitRef.add({
-        code: "unit4",
+        code: "unit1",
         name: "31 8th St", 
         city: "New Westminster",
         province: "British Columbia",
@@ -40,7 +40,7 @@ function writeunit() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
-        code: "unit5",
+        code: "unit1",
         name: "15531 24 Ave #1", 
         city: "Surrey",
         province: "British Columbia",
@@ -48,7 +48,7 @@ function writeunit() {
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
-        code: "unit6",
+        code: "unit1",
         name: "4132 Dawson St", 
         city: "Burnaby",
         province: "British Columbia",
