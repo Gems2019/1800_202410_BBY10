@@ -44,11 +44,11 @@ header {
 
 /* Styling for secondary buttons */
 .btn-outline-secondary {
-    border-color: #0D6EFD; /* Blue color for button borders */
-    color: #0D6EFD; /* Blue color for button text */
+    border-color: #ffffff; /* Blue color for button borders */
+    color: #04ff00; /* Blue color for button text */
 }
 .btn-outline-secondary:hover {
-    background-color: #0D6EFD; /* Blue background on hover */
+    background-color: #fbfcff; /* Blue background on hover */
     color: white; /* White text color on hover */
 }
 
@@ -104,3 +104,24 @@ header {
 .card-body .col-md-4, .card-body .col-md-8 {
     flex: 1; /* Allow each section to expand */
 }
+
+.custom-bg-color {
+    background-color: #3590F3;
+    transition: background-color 0.3s ease;
+    color: #ffffff; 
+    text-align: center;
+    line-height: 30px; 
+    height: 30px; 
+    display: inline;
+    text-decoration: none;
+    border: none; 
+    border-radius: 5px; 
+    padding: 0 10px; 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+.custom-bg-color:hover {
+    background-color: #3590F3; 
+}
+
