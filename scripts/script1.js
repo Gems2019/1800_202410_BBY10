@@ -6,42 +6,42 @@ function writeunit() {
 
     unitRef.add({
         code: "unit1",
-        name: "4480 Oak St", 
+        name: "4480 Oak St",
         city: "Vancouver",
         province: "British Columbia",
         Type: "Apartment",
-				details: "Bedroom/Bathroom: 2/2",            
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  
+		details: "Bedroom/Bathroom: 2/2",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
     unitRef.add({
         code: "unit1",
-        name: "2050 W 4th Ave", 
+        name: "2050 W 4th Ave",
         city: "Vancouver",
         province: "British Columbia",
         Type: "Basement",
-				details: "Bedroom/Bathroom: 2/1",            
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  
+				details: "Bedroom/Bathroom: 2/1",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
     unitRef.add({
         code: "unit1",
-        name: "12500 Bridgeport Rd", 
+        name: "12500 Bridgeport Rd",
         city: "Richmond",
         province: "British Columbia",
         level: "Apartment",
-				details: "Bedroom/Bathroom: 1/1",            
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  
+				details: "Bedroom/Bathroom: 1/1",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
     unitRef.add({
         code: "unit1",
-        name: "31 8th St", 
+        name: "31 8th St",
         city: "New Westminster",
         province: "Apartment",
-        level: "unit", 
+        level: "unit",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
         code: "unit1",
-        name: "15531 24 Ave #1", 
+        name: "15531 24 Ave #1",
         city: "Surrey",
         province: "British Columbia",
         level: "Basement",
@@ -49,7 +49,7 @@ function writeunit() {
     });
     unitRef.add({
         code: "unit1",
-        name: "4132 Dawson St", 
+        name: "4132 Dawson St",
         city: "Burnaby",
         province: "British Columbia",
         level: "GuestHouse",
@@ -82,11 +82,11 @@ function writeunitLoop(max) {
     //define a variable for the collection you want to create in Firestore to populate data
     var hikesRef = db.collection("AvailableUnit");
     for (i = 1; i <= max; i++) {
-        hikesRef.add({ 
+        hikesRef.add({
             name: "unit" + i,
-            details: "Bedroom/Bathroom:" + "  " 
+            details: "Bedroom/Bathroom:" + "  "
                 + "Location:" + i,
-            code: unit1,    
+            code: unit1,
             last_updated: firebase.firestore.FieldValue.serverTimestamp()
         })
    }
@@ -119,7 +119,7 @@ exports.createAvailableUnitsOnNewProperty = functions.firestore
         for (let i = 1; i <= max; i++) {
             // Push the promise from the 'add' operation into the array
             promises.push(
-                hikesRef.add({ 
+                hikesRef.add({
                     name: "unit" + i,
                     details: `Bedroom/Bathroom: ${newData.details} Location: ${newData.location}`,
                     code: newData.codePrefix + i, // Assuming each unit gets a code starting with the property's code prefix
@@ -142,9 +142,9 @@ function listNewProperty(property) {
     // Adding a new property to the Firestore collection
     availableUnitRef.add({
         name: property.name,
-        details: "Bedroom/Bathroom: " + property.bedrooms + "/" + property.bathrooms 
+        details: "Bedroom/Bathroom: " + property.bedrooms + "/" + property.bathrooms
                  + " Location: " + property.location,
-        code: property.code,    
+        code: property.code,
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     }).then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
