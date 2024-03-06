@@ -9,7 +9,7 @@ function writeunit() {
         name: "4480 Oak St", 
         city: "Vancouver",
         province: "British Columbia",
-        level: "Unit",
+        Type: "Apartment",
 				details: "Bedroom/Bathroom: 2/2",            
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
@@ -18,7 +18,7 @@ function writeunit() {
         name: "2050 W 4th Ave", 
         city: "Vancouver",
         province: "British Columbia",
-        level: "Unit",
+        Type: "Basement",
 				details: "Bedroom/Bathroom: 2/1",            
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
@@ -27,7 +27,7 @@ function writeunit() {
         name: "12500 Bridgeport Rd", 
         city: "Richmond",
         province: "British Columbia",
-        level: "Unit",
+        level: "Apartment",
 				details: "Bedroom/Bathroom: 1/1",            
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  
     });
@@ -35,7 +35,7 @@ function writeunit() {
         code: "unit1",
         name: "31 8th St", 
         city: "New Westminster",
-        province: "British Columbia",
+        province: "Apartment",
         level: "unit", 
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
@@ -44,7 +44,7 @@ function writeunit() {
         name: "15531 24 Ave #1", 
         city: "Surrey",
         province: "British Columbia",
-        level: "unit",
+        level: "Basement",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     unitRef.add({
@@ -52,7 +52,7 @@ function writeunit() {
         name: "4132 Dawson St", 
         city: "Burnaby",
         province: "British Columbia",
-        level: "unit",
+        level: "GuestHouse",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
 }
@@ -82,7 +82,7 @@ function writeunitLoop(max) {
     //define a variable for the collection you want to create in Firestore to populate data
     var hikesRef = db.collection("AvailableUnit");
     for (i = 1; i <= max; i++) {
-        hikesRef.add({ //add to database, autogen ID
+        hikesRef.add({ 
             name: "unit" + i,
             details: "Bedroom/Bathroom:" + "  " 
                 + "Location:" + i,
@@ -91,3 +91,77 @@ function writeunitLoop(max) {
         })
    }
 }
+
+
+// Import the necessary admin module and initialize the app
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+// Firestore reference
+const db = admin.firestore();
+
+exports.createAvailableUnitsOnNewProperty = functions.firestore
+    .document('ListedProperties/{propertyId}')
+    .onCreate((snap, context) => {
+        // Get the new property data
+        const newData = snap.data();
+
+        // Let's assume 'max' (the number of units to generate) is part of the new property data
+        const max = newData.numberOfUnits;
+
+        // Reference to the collection where we want to create new documents
+        var hikesRef = db.collection("AvailableUnit");
+
+        // Array to hold all promises from the writes
+        let promises = [];
+
+        // Creating multiple documents based on the new property
+        for (let i = 1; i <= max; i++) {
+            // Push the promise from the 'add' operation into the array
+            promises.push(
+                hikesRef.add({ 
+                    name: "unit" + i,
+                    details: `Bedroom/Bathroom: ${newData.details} Location: ${newData.location}`,
+                    code: newData.codePrefix + i, // Assuming each unit gets a code starting with the property's code prefix
+                    last_updated: admin.firestore.FieldValue.serverTimestamp()
+                })
+            );
+        }
+
+        // Return a single Promise that resolves when all adds are done
+        return Promise.all(promises);
+    });
+
+    // Firestore DB initialization
+// Assume db is already initialized elsewhere in your code as the Firestore instance
+
+// Function to add a single unit/property
+function listNewProperty(property) {
+    var availableUnitRef = db.collection("AvailableUnit");
+
+    // Adding a new property to the Firestore collection
+    availableUnitRef.add({
+        name: property.name,
+        details: "Bedroom/Bathroom: " + property.bedrooms + "/" + property.bathrooms 
+                 + " Location: " + property.location,
+        code: property.code,    
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
+    }).then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
+// Example usage of the function
+// This example assumes you have an object for a new property listing
+var newProperty = {
+    name: "unit101",
+    bedrooms: 2,
+    bathrooms: 1,
+    location: "Downtown",
+    code: "unit101Code" // Ensure this is unique or generated accordingly
+};
+
+// Call the function when a landlord lists a new property
+listNewProperty(newProperty);
