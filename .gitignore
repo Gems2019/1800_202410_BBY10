@@ -2,7 +2,4 @@
 *.logs
 node_modules/
 .vscode/
-<<<<<<< HEAD
-=======
 firebaseAPI_TEAM10.js
->>>>>>> 30ee79221a1341ca0600af530b1664ef0459f82d
