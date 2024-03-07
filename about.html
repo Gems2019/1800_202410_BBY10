@@ -45,14 +45,22 @@
     padding: 2rem;
     /* Spacious padding for the card content */
   }
+
+  .logo {
+    width: 90px; /* Adjust based on your logo's ideal size */
+    height: 90px; /* This ensures the image maintains its aspect ratio */
+    padding: 0px;
+    /*object-fit: contain; /* This ensures the image fits well within the dimensions without being stretched */
+}
+
+
 </style>
 
 <body>
 
-  <!-- rating.js file -->
-  <script src="js/addons/rating.js"></script>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+      <img src="/images/LogoI2.png" class="rounded logo" alt="Team Member 1">>
       <a class="navbar-brand" href="#">Rental Management System</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
