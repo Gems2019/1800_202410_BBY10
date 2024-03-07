@@ -97,7 +97,6 @@ function displayCardsDynamically(collection) {
 
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
-                //newcard.querySelector('.card-length').innerHTML = hikeLength +"km";
                 newcard.querySelector('.card-rdetails').innerHTML = rentaldetails;
                 newcard.querySelector('.card-rcode').innerHTML = rentalCode;
                 newcard.querySelector('.card-area').innerHTML = area;
