@@ -35,40 +35,70 @@
             <h2 class="text-center"></h2>
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-4"> <!-- Changed to md-3 for three columns -->
-            <!-- Example of Rental Unit -->
+          
+            <div class="container"> 
+                <h1>Available Rentals</h1>
+                <!-- Here is the container for cards  -->
+                <div class="container">
+                    <div id="units" class="row row-cols-auto">
+                    </div>
+                </div>
+        </div>
+          
+        <!-- Templates for general use, not displayed -->
+<template id="hikeCardTemplate">
+    <div class="card py-2 mx-2" style="width: 18rem">
+        <img class="card-image card-img-top" src=" ..." alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-length">placeholder</p>
+            <br />
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+            </p>
+            <a class="btn btn-primary card-href">Read more ...</a>
+        </div>
+    </div>
+</template>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <!-- Example of Rental Unit 
             <div class="col">
                 <div class="card">
                     <div class="row g-0">
-                        <div class="col-md-12"> <!-- Changed to full width for top to bottom layout -->
+                        <div class="col-md-12"> <!-- Changed to full width for top to bottom layout 
                             <img src="/images/unit1.jpg" class="img-fluid rounded-start" alt="Unit Image">
                         </div>
                         <div class="col-md-12">
                             <div class="card-body">
-<<<<<<< HEAD:Project/propertiesListingPage.html
-                               <p>Location:<br>
-                               Rooms:2 Bathrooms:2 </p>
-                               <a href="about.html" class="custom-bg-color">Request</a>
-                               <a href="about.html" class="custom-bg-color">Request</a>
-                            </a>                            
-=======
                                <p>Unit A <br>
                                Rooms 2 Bathrooms 2 </p>
-                               <div>
-
-                                <i class="fas fa-star star selected"></i>
-                                <i class="fas fa-star star selected"></i>
-                                <i class="fas fa-star star selected"></i>
-                                <i class="fas fa-star star"></i>
-                                <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
-                            </div>
->>>>>>> 30ee79221a1341ca0600af530b1664ef0459f82d:propertiesListingPage.html
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Repeat this structure for other units -->
-            <!-- Example for second unit -->
+             Repeat this structure for other units 
+             Example for second unit 
             <div class="col">
                 <div class="card">
                     <div class="row g-0">
@@ -85,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Example for third unit -->
+            Example for third unit 
             <div class="col">
                 <div class="card">
                     <div class="row g-0">
@@ -103,7 +133,7 @@
                     </div>
                 </div>
             </div>
-               <!-- Example for fourth unit -->
+               Example for fourth unit
                <div class="col">
                 <div class="card">
                     <div class="row g-0">
@@ -114,22 +144,18 @@
                             <div class="card-body">
                               <p>Unit D <br>
                                 Rooms 1 Bathrooms 1 </p>
-<<<<<<< HEAD:Project/propertiesListingPage.html
-                                <a href="about.html" class="custom-bg-color">Request</a>
-=======
                                 <div>
                                   <i class="fas fa-star star selected"></i>
                                   <i class="fas fa-star star selected"></i>
                                   <button class="btn btn-primary select-unit" data-unit="Unit A - Room 1">Select Unit</button>
                               </div>
 
->>>>>>> 30ee79221a1341ca0600af530b1664ef0459f82d:propertiesListingPage.html
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Example for fifth unit -->
+            Example for fifth unit 
             <div class="col">
                 <div class="card">
                     <div class="row g-0">
@@ -146,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Example for sixth unit -->
+            Example for sixth unit 
             <div class="col">
                 <div class="card">
                     <div class="row g-0">
@@ -170,13 +196,9 @@
     <footer class="footer bg-primary text-white">
       <div class="container py-4">
           <div class="row">
-<<<<<<< HEAD:Project/propertiesListingPage.html
-             
-  
-=======
 
 
-              <!-- Rate Your Experience Section -->
+               Rate Your Experience Section 
               <div class="col-md-6 text-md-end text-center mt-4 mt-md-0">
                  <h4>Review us</h4>
                   <div id="rateExperience">
@@ -195,6 +217,5 @@
 
     <!-- Bootstrap and JS scripts -->
     <script src="rating.js"></script> <!-- Make sure to link your JavaScript file here -->
->>>>>>> 30ee79221a1341ca0600af530b1664ef0459f82d:propertiesListingPage.html
 </body>
 </html>
