@@ -1,10 +1,10 @@
 
 
-function writeunit() {
+function writeUnit() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var hikesRef = db.collection("rentals");
+    var unitRef = db.collection("rentals");
 
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "4480 Oak St",
         city: "Vancouver",
@@ -15,7 +15,7 @@ function writeunit() {
         rcost: "3200",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "2050 W 4th Ave",
         city: "Vancouver",
@@ -26,7 +26,7 @@ function writeunit() {
         rcost: "2850",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "12500 Bridgeport Rd",
         city: "Richmond",
@@ -37,7 +37,7 @@ function writeunit() {
         rcost: "2300",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "31 8th St",
         city: "New Westminster",
@@ -48,7 +48,7 @@ function writeunit() {
         rcost: "2800",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "15531 24 Ave #1",
         city: "Surrey",
@@ -59,7 +59,7 @@ function writeunit() {
         rcost: "1900",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "4132 Dawson St",
         city: "Burnaby",
@@ -76,12 +76,12 @@ function writeunit() {
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("rentalCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("rentalsCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "hikes"
-        .then(allrental=> {
+        .then(allrentals=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
-            allrental.forEach(doc => { //iterate thru each doc
+            allrentals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
                 var rentaldetails = doc.data().details;  // get value of the "details" key
 				var rentalCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image
@@ -105,6 +105,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-info').innerHTML = info;
                 newcard.querySelector('.card-cost').innerHTML = cost;
                 newcard.querySelector('.card-img').src = `./images/${unit1}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('a').href = "propertyDetailPage.html?docID="+docID;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
