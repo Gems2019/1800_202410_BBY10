@@ -40,3 +40,4 @@ function logout() {
         console.log("error: ", error)
       });
 }
+
