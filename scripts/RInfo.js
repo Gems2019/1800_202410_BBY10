@@ -2,7 +2,7 @@
 
 function writeunit() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var hikesRef = db.collection("rentals");
+    var unitRef = db.collection("rentals");
 
     unitRef.add({
         code: "unit1",
@@ -79,9 +79,9 @@ function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("rentalCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "hikes"
-        .then(allrental=> {
+        .then(allrentals=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
-            allrental.forEach(doc => { //iterate thru each doc
+            allrentals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
                 var rentaldetails = doc.data().details;  // get value of the "details" key
 				var rentalCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image
@@ -105,6 +105,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-info').innerHTML = info;
                 newcard.querySelector('.card-cost').innerHTML = cost;
                 newcard.querySelector('.card-img').src = `./images/${unit1}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('a').href = "propertyDetailPage.html?docID="+docID;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
