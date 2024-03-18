@@ -21,7 +21,7 @@ var uiConfig = {
 
           //check if user.role == "tenant" || user.role == "landlord"
             db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-                   name: user.firstName,                    //"users" collection
+                   name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    country: "Canada"                      //optional default profile info
             }).then(function () {
