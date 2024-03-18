@@ -1,10 +1,10 @@
 
 
-function writeunit() {
+function writeUnit() {
     //define a variable for the collection you want to create in Firestore to populate data
     var unitRef = db.collection("rentals");
 
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "4480 Oak St",
         city: "Vancouver",
@@ -15,7 +15,7 @@ function writeunit() {
         rcost: "3200",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "2050 W 4th Ave",
         city: "Vancouver",
@@ -26,7 +26,7 @@ function writeunit() {
         rcost: "2850",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "12500 Bridgeport Rd",
         city: "Richmond",
@@ -37,7 +37,7 @@ function writeunit() {
         rcost: "2300",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "31 8th St",
         city: "New Westminster",
@@ -48,7 +48,7 @@ function writeunit() {
         rcost: "2800",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "15531 24 Ave #1",
         city: "Surrey",
@@ -59,7 +59,7 @@ function writeunit() {
         rcost: "1900",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    rentalsRef.add({
         code: "unit1",
         name: "4132 Dawson St",
         city: "Burnaby",
@@ -76,7 +76,7 @@ function writeunit() {
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("rentalCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("rentalsCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "hikes"
         .then(allrentals=> {
