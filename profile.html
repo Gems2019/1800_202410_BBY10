@@ -63,9 +63,10 @@
               <p class="lead mb-4">Reimagine rental management with a platform that combines ease, efficiency, and
                 accessibility. </p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">I'm a Landlord</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">I'm a Tenant</button>
-                <!-- <a href="login.html" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">Sign Up for Free</a>  -->
+                <form id="role-selection-form">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="tenant" name="role" value="tenant">I'm a Tenant</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4" id="landlord" name="role" value="landlord">I'm a Landlord</button>
+                </form>
               </div>
             </div>
           </div>
@@ -80,8 +81,6 @@
                         of the rental process.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                         <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">More Information</button>
-                        <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
-                        <!-- <a href="login.html" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">Sign Up for Free</a> -->
                     </div>
                 </div>
                 <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -90,7 +89,7 @@
             </div>
         </div>
 
-        
+
     </main>
 
 
@@ -98,13 +97,14 @@
 
     <nav id="footerPlaceholder"></nav>
 
-   
+
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
     <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/authentication_2.js"></script>
 
-    
+
 
 </body>
 
