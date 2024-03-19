@@ -30,12 +30,14 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <link rel="stylesheet" href="AR.css">
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <style>
+        /* Add background color to the body */
+        body {
+            background-color: #f8f9fa; /* Light grey color */
+        }
+    </style>
+
+
 
 </head>
 
@@ -50,12 +52,13 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container-fluid bg-light text-dark p-5">
-        <div class="container bg-light p-0.5 text-center"> <!-- Added 'text-center' class here -->
+        <div class="container bg-light pt-3 text-center"> <!-- Added 'pt-3' class for padding on top -->
             <h1 class="display-4"><b>Available Rentals </b><span id="name-goes-here"></span></h1>
             <hr>
-           
         </div>
     </div>
+    
+    
     
     <div class="container"> 
         
@@ -70,13 +73,15 @@
     <div class="card py-2 mx-2" style="width: 18rem">
         <img class="card-image card-img-top" src=" ..." alt="..." />
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-length">placeholder</p>
-            <br />
+            <p class="card-title"></p>
+            <p class="card-length"></p>
+            <p class="card-rdetails">
             <p class="card-text">
-        
+            <p class="card-region">
+            <p class="card-utype"></p>
+            <p class="card-rcost"></p>
             </p>
-            <a class="btn btn-primary card-href">Details</a>
+            <a class="btn btn-outline-secondary card-href">More Details</a>
         </div>
     </div>
 </template>
