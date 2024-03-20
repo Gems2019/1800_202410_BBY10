@@ -1,0 +1,12 @@
+.card {
+    padding-bottom: 15px; /* Adjust this value as needed */
+}
+
+.card-body {
+    padding-bottom: 50px; /* Adjust this value as needed */
+}
+.btn-green {
+    background-color: #28a745; /* Bootstrap's 'success' green */
+    color: white; /* White text color */
+    /* Add other button styling as needed */
+}
