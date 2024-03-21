@@ -10,3 +10,12 @@
     color: white; /* White text color */
     /* Add other button styling as needed */
 }
+
+.founding-story-card {
+    background: #f8f9fa;
+    /* Light grey background */
+    border: none;
+    /* Removes the default card border */
+    border-radius: 0.5rem;
+    /* Slightly rounded corners for the card */
+  }
