@@ -1,6 +1,6 @@
-var hikeDocID = localStorage.getItem("unitDocID");    //visible to all functions on this page
+var renterDocID = localStorage.getItem("renterDocID");    //visible to all functions on this page
 function getUnitName(id) {
-    db.collection("units")
+    db.collection("reviews")
       .doc(id)
       .get()
       .then((thisHike) => {
@@ -9,9 +9,9 @@ function getUnitName(id) {
           });
 }
 
-getUnitName(unitDocID);
+getUnitName(renterDocID);
 
-function writeReview() {
+function writeRenter() {
     console.log("inside write review");
     let unitTitle = document.getElementById("title").value;
     let unitLevel = document.getElementById("level").value;
@@ -43,14 +43,14 @@ function writeReview() {
 
         // Get the document for the current user.
         db.collection("reviews").add({
-            hikeDocID: hikeDocID,
+            renterDocID: renterDocID,
             userID: userID,
-            title: hikeTitle,
-            level: hikeLevel,
-            season: hikeSeason,
-            description: hikeDescription,
-            pet: hikeFlooded,
-            alone: hikeScrambled,
+            title: unitTitle,
+            level: unitLevel,
+            season: unitSeason,
+            description: unitDescription,
+            pet: unitPet,
+            alone: unitAlone,
             rating: hikeRating, // Include the rating in the review
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {

@@ -85,5 +85,5 @@ function populateRenters() {
         });
 }
 
-populateReviews();
+populateRenters();
 
