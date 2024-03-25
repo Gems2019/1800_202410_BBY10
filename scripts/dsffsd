@@ -97,7 +97,7 @@ function displayCardsDynamically(collection) {
 
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-rdetails').innerHTML = rentaldetails;
+                newcard.querySelector('.card-rentaldetails').innerHTML = rentaldetails;
                 newcard.querySelector('.card-rcode').innerHTML = rentalCode;
                 newcard.querySelector('.card-area').innerHTML = area;
                 newcard.querySelector('.card-region').innerHTML = region;
