@@ -1,31 +1,35 @@
-// Wait for the DOM to be fully loaded before executing scripts
 document.addEventListener('DOMContentLoaded', function() {
+
   // Function to handle clicking on the Tenant button
   function onTenantClick() {
     selectRole('tenant');
   }
+
+  // Function to handle clicking on the Landlord button
   function onLandlordClick() {
     selectRole('landlord');
   }
 
-  // Function to handle clicking on the Landlord button
+  // Unified function to handle role selection and user data storage
   function selectRole(role) {
     // Use firebase.auth().onAuthStateChanged to reactively get the user's sign-in state
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in, proceed with role selection
         console.log("Selected role: ", role);
+
+        // Updated userData with role information
         const userData = {
           name: user.displayName,
           email: user.email,
-          // Add additional user fields as necessary
+          // New role fields
+          role: role, // 'landlord' or 'tenant'
+          landlord: role === 'landlord', // true if landlord, false otherwise
+          tenant: role === 'tenant', // true if tenant, false otherwise
         };
 
-        // Determine the collection based on selected role
-        const collectionName = role === 'tenant' ? 'tenants' : 'landlords';
-
-        // Store the user data in Firestore
-        db.collection(collectionName).doc(user.uid).set(userData)
+        // Store the user data in Firestore, under a unified 'users' collection
+        db.collection('users').doc(user.uid).set(userData)
           .then(() => {
             console.log(`User registered as ${role}.`);
             // Redirect user to the main page
