@@ -1,11 +1,11 @@
 
 
-function writeUnits() {
+function writeRentals() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var unitsRef = db.collection("rentals2");
+    var unitsRef = db.collection("rentals");
 
     
-    unitsRef.add({
+    RentalsRef.add({
         code: "unit1",
         name: "4480 Oak St",
         city: "Vancouver",
@@ -17,7 +17,7 @@ function writeUnits() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
        
-    unitsRef.add({
+    RentalsRef.add({
         code: "unit1",
         name: "2050 W 4th Ave",
         city: "Vancouver",
@@ -29,7 +29,7 @@ function writeUnits() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
 
-     unitsRef.add({
+     RentalsRef.add({
         code: "unit1",
         name: "12500 Bridgeport Rd",
         city: "Richmond",
@@ -40,7 +40,7 @@ function writeUnits() {
         rcost: "2300 Cad",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
-    unitRef.add({
+    RentalsRef.add({
         code: "unit1",
         name: "31 8th St",
         city: "New Westminster",
@@ -51,7 +51,7 @@ function writeUnits() {
         rcost: "2800 Cad",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    RentalsRef.add({
         code: "unit1",
         name: "15531 24 Ave #1",
         city: "Surrey",
@@ -62,7 +62,7 @@ function writeUnits() {
         rcost: "1900 Cad",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    unitRef.add({
+    Rentalsref.add({
         code: "unit1",
         name: "4132 Dawson St",
         city: "Burnaby",
