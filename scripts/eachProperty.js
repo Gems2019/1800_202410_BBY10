@@ -1,4 +1,4 @@
-function displayUnitInfo() {
+function displayRentalInfo() {
     let params = new URL( window.location.href ); //get URL of search bar
     let ID = params.searchParams.get( "docID" ); //get value for key "id"
     console.log( ID );
@@ -8,41 +8,41 @@ function displayUnitInfo() {
         .doc( ID )
         .get()
         .then( doc => {
-            thisUnit = doc.data();
-            unitCode = thisUnit.code;
-            unitName = doc.data().name;
+            thisRental = doc.data();
+            rentalCode = thisRental.code;
+            rentalName = doc.data().name;
             
             // only populate title, and image
-            document.getElementById( "unitName" ).innerHTML = unitName;
+            document.getElementById( "rentalName" ).innerHTML = rentalName;
             let imgEvent = document.querySelector( ".unit-img" );
-            imgEvent.src = "../images/" + unitCode + ".jpg";
+            imgEvent.src = "../images/" + rentalCode + ".jpg";
         } );
 }
-displayUnitInfo();
+displayRentalInfo();
 
-function saveRentDocumentIDAndRedirect(){
+function saveRentalDocumentIDAndRedirect(){
     let params = new URL(window.location.href) //get the url from the search bar
     let ID = params.searchParams.get("docID");
-    localStorage.setItem('renterDocID', ID);
+    localStorage.setItem('rentalDocID', ID);
     window.location.href = 'renterInfo.html';
 }
 
 function populateRenters() {
     console.log("test");
-    let hikeCardTemplate = document.getElementById("renterCardTemplate");
-    let hikeCardGroup = document.getElementById("renterCardGroup");
+    let rentalCardTemplate = document.getElementById("renterCardTemplate");
+    let rentalCardGroup = document.getElementById("renterCardGroup");
 
     let params = new URL(window.location.href); // Get the URL from the search bar
-    let hikeID = params.searchParams.get("docID");
+    let rentalID = params.searchParams.get("docID");
 
     // Double-check: is your collection called "Reviews" or "reviews"?
-    db.collection("")
-        .where("rentalsDocID", "==", usersID)
+    db.collection("renters")
+        .where("rentalDocID", "==", rentalID)
         .get()
-        .then((allRentals) => {
-            renters = allRentals.docs;
-            console.log(allRentals);
-            reviews.forEach((doc) => {
+        .then((allRenters) => {
+            renters = allRenters.docs;
+            console.log(renters);
+            renters.forEach((doc) => {
                 var title = doc.data().title;
                 var level = doc.data().level;
                 var season = doc.data().season;
@@ -55,16 +55,16 @@ function populateRenters() {
 
                 console.log(time);
 
-                let reviewCard = hikeCardTemplate.content.cloneNode(true);
-                reviewCard.querySelector(".title").innerHTML = title;
-                reviewCard.querySelector(".time").innerHTML = new Date(
+                let renterCard = rentalCardTemplate.content.cloneNode(true);
+                renterCard.querySelector(".title").innerHTML = `Renter name: ${title}`;
+                renterCard.querySelector(".time").innerHTML = new Date(
                     time
                 ).toLocaleString();
-                reviewCard.querySelector(".level").innerHTML = `Level: ${level}`;
-                reviewCard.querySelector(".season").innerHTML = `Season: ${season}`;
-                reviewCard.querySelector(".alone").innerHTML = `Alone: ${alone}`;
-                reviewCard.querySelector(".pet").innerHTML = `Pet: ${pet}`;
-                reviewCard.querySelector( ".description").innerHTML = `Description: ${description}`;
+                renterCard.querySelector(".level").innerHTML = `What level are you used to noise?: ${level}`;
+                renterCard.querySelector(".season").innerHTML = `Which season will you move in?: ${season}`;
+                renterCard.querySelector(".alone").innerHTML = `Are you move in alone?: ${alone}`;
+                renterCard.querySelector(".pet").innerHTML = `Do u have pet with you?: ${pet}`;
+                renterCard.querySelector( ".description").innerHTML = `What are you going to say to landlord?:${description}`;
 
                 // Populate the star rating based on the rating value
                 
@@ -78,12 +78,12 @@ function populateRenters() {
                 for (let i = rating; i < 5; i++) {
                     starRating += '<span class="material-icons">star_outline</span>';
                 }
-                reviewCard.querySelector(".star-rating").innerHTML = starRating;
+                // renterCard.querySelector(".star-rating").innerHTML = starRating;
 
-                hikeCardGroup.appendChild(reviewCard);
+                rentalCardGroup.appendChild(renterCard);
             });
         });
 }
 
-populateReviews();
+populateRenters();
 

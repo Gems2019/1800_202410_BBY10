@@ -58,26 +58,26 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container">
-        <h1><span id="unitName">this property</span></h1>
+        <h1><span id="rentalName">this property</span></h1>
         <div class="position-relative">
-            <img class="unit-img responsive" src="" alt="Hike photo">
+            <img class="unit-img responsive" src="" alt="Property photo">
             <button class="btn btn-primary position-absolute bottom-0 end-0 m-3"
-                onclick="saveHikeDocumentIDAndRedirect()">I'm renting it!</button>
+                onclick="saveRentalDocumentIDAndRedirect()">I'm renting it!</button>
         </div>
     </div>
 
     <div class="container">
         <h2>Renter Information:</h2>
-        <div id="details-go-here"></div>
+        <div id="detials-go-here"></div>
         <!-- Here is the container for cards with horizontal scrolling -->
         <div class="card-container">
-            <div id="reviewCardGroup" class="row row-cols-auto">
+            <div id="renterCardGroup" class="row row-cols-auto">
                 <!-- Add your card templates here -->
             </div>
         </div>
     </div>
 
-    <template id="reviewCardTemplate">
+    <template id="renterCardTemplate">
         <div class="card bg-secondary">
             <img class="card-img-top">
             <div class="card-body bg-light">
@@ -103,6 +103,7 @@
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/eachProperty.js"></script>
+    <script src="./scripts/renterInfo.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
