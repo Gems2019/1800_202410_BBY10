@@ -29,10 +29,8 @@ function populatetenants() {
                 reviewCard.querySelector(".time").innerHTML = new Date(
                     time
                 ).toLocaleString();
-                reviewCard.querySelector(".level").innerHTML = `Level: ${level}`;
-                reviewCard.querySelector(".season").innerHTML = `Season: ${season}`;
-                reviewCard.querySelector(".scrambled").innerHTML = `Scrambled: ${scrambled}`;
-                reviewCard.querySelector(".flooded").innerHTML = `Flooded: ${flooded}`;
+                reviewCard.querySelector(".lease").innerHTML = `Lease: ${lease}`;
+                reviewCard.querySelector(".reviews").innerHTML = `Reviews: ${reviews}`;
                 reviewCard.querySelector( ".description").innerHTML = `Description: ${description}`;
 
                 // Populate the star rating based on the rating value

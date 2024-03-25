@@ -37,11 +37,11 @@ function populateRenters() {
 
     // Double-check: is your collection called "Reviews" or "reviews"?
     db.collection("")
-        .where("renterDocID", "==", renterID)
+        .where("rentalsDocID", "==", usersID)
         .get()
-        .then((allRenters) => {
-            renters = allRenters.docs;
-            console.log(renters);
+        .then((allRentals) => {
+            renters = allRentals.docs;
+            console.log(allRentals);
             reviews.forEach((doc) => {
                 var title = doc.data().title;
                 var level = doc.data().level;
