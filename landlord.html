@@ -29,44 +29,82 @@
 </head>
 <style>
   body {
-    font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* This makes sure the body takes at least the height of the viewport */
+      margin: 0; /* Removes default margin */
+      font-family: 'Roboto', sans-serif;
   }
 
-  .founding-story-card {
-    background: #f8f9fa;
-    /* Light grey background */
-    border: none;
-    /* Removes the default card border */
-    border-radius: 0.5rem;
-    /* Slightly rounded corners for the card */
+  .tenant-details-container {
+      background: #f8f9fa; /* Light grey background */
+      border: none; /* Removes the default card border */
+      border-radius: 0.5rem; /* Slightly rounded corners for the card */
+      padding: 1rem; /* Spacious padding for the card content */
+      display: flex;
+      flex-direction: column; /* Aligns child divs (photo, info) vertically */
+      align-items: center; /* Centers child divs horizontally */
   }
 
-  .founding-story-card .card-body {
-    padding: 2rem;
-    /* Spacious padding for the card content */
+  .tenant-photo img {
+      width: 300px; /* Adjust based on your logo's ideal size */
+      height: 300px; /* This ensures the image maintains its aspect ratio */
+      padding-bottom: 30px ;
   }
 
-  .logo {
-    width: 80px; /* Adjust based on your logo's ideal size */
-    height: 80px; /* This ensures the image maintains its aspect ratio */
-    /*object-fit: contain; /* This ensures the image fits well within the dimensions without being stretched */
-}
-
-
+  .tenant-info, .tenant-lease-info {
+      text-align: center; /* Centers the text within tenant info and lease info */
+      width: 100%; /* Ensures the tenant info takes full width of the container */
+  }
 </style>
 
 <body>
 
- 
- 
+  <nav id="navbarPlaceholder"></nav>
 
+  <div class="container">
+    <h1><span id="hikeName">Bruntzen Lake Trail</span></h1>
+    <div class="position-relative">
+        <img class="hike-img responsive" src="" alt="hike1">
+        <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" onclick="saveHikeDocumentIDAndRedirect()">Write Review</button>
+    </div>
+</div>
+<div class="container">
+    <h2>Reviews:</h2>
+    <div id="details-go-here"></div>
+    <!-- Here is the container for cards with horizontal scrolling -->
+    <div class="card-container">
+        <div id="reviewCardGroup" class="row row-cols-auto">
+            <!-- Add your card templates here -->
+        </div>
+    </div>
+</div>
 
+<template id="reviewCardTemplate">
+    <div class="card bg-secondary">
+        <img class="card-img-top">
+        <div class="card-body bg-light">
+            <h5 class="title">placeholder</h5>
+            <p class="star-rating"></p>
+            <p class="time">placeholder</p>
+            <p class="level">placeholder</p>
+            <p class="season">placeholder</p>
+            <p class="scrambled">placeholder</p>
+            <p class="flooded">placeholder</p>
+            <br>
+            <p class="description">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+    </div>
+</template>
+<br>
 <nav id="footerPlaceholder"></nav>
 
   <!-- Bootstrap JS bundle with Popper -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="./scripts/firebaseAPI_TEAM10.js"></script>
   <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/landlord.js"></script>
 </body>
 
 </html>

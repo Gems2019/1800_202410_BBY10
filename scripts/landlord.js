@@ -1,41 +1,57 @@
-document.addEventListener('DOMContentLoaded', event => {
-    const db = firebase.firestore();
-    const propertyList = document.getElementById('property-list');
-    const ownerId = firebase.auth().currentUser.uid; // Get current user's ID
+function populatetenants() {
+    console.log("tenants");
+    let hikeCardTemplate = document.getElementById("reviewCardTemplate");
+    let hikeCardGroup = document.getElementById("reviewCardGroup");
 
-    // Fetch properties owned by the logged-in owner
-    db.collection('properties').where('ownerId', '==', ownerId).get().then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-            const property = doc.data();
-            const propertyItem = document.createElement('div');
-            propertyItem.className = 'property-item';
-            propertyItem.innerHTML = `<h3>${property.name}</h3>`;
+    let params = new URL(window.location.href); // Get the URL from the search bar
+    let hikeID = params.searchParams.get("docID");
 
-            // Fetch tenants of the property
-            doc.ref.collection('tenants').get().then(tenantSnapshot => {
-                tenantSnapshot.forEach(tenantDoc => {
-                    const tenant = tenantDoc.data();
-                    const tenantItem = document.createElement('div');
-                    tenantItem.className = 'tenant-item';
-                    tenantItem.innerHTML = `<p>${tenant.name}</p>`;
+    // Double-check: is your collection called "Reviews" or "reviews"?
+    db.collection("test")
+        .where("rentalsDocID", "==", usersID)
+        .get()
+        .then((Rentalsall) => {
+            reviews = allRentals.docs;
+            console.log(rentals);
+            reviews.forEach((doc) => {
+                var title = doc.data().title;
+                var lease = doc.data().lease;
+                var description = doc.data().description;
+                var reviews = doc.data().reviews;
+                var time = doc.data().timestamp.toDate();
+                var rating = doc.data().rating; 
+                console.log(rating)
 
-                    // Add verification button if tenant is not verified
-                    if (!tenant.verified) {
-                        const verifyBtn = document.createElement('button');
-                        verifyBtn.className = 'verify-btn';
-                        verifyBtn.innerText = 'Yes, this is my tenant';
-                        verifyBtn.onclick = () => {
-                            tenantDoc.ref.update({ verified: true });
-                            tenantItem.removeChild(verifyBtn);
-                        };
-                        tenantItem.appendChild(verifyBtn);
-                    }
+                console.log(time);
 
-                    propertyItem.appendChild(tenantItem);
-                });
+                let reviewCard = hikeCardTemplate.content.cloneNode(true);
+                reviewCard.querySelector(".title").innerHTML = title;
+                reviewCard.querySelector(".time").innerHTML = new Date(
+                    time
+                ).toLocaleString();
+                reviewCard.querySelector(".level").innerHTML = `Level: ${level}`;
+                reviewCard.querySelector(".season").innerHTML = `Season: ${season}`;
+                reviewCard.querySelector(".scrambled").innerHTML = `Scrambled: ${scrambled}`;
+                reviewCard.querySelector(".flooded").innerHTML = `Flooded: ${flooded}`;
+                reviewCard.querySelector( ".description").innerHTML = `Description: ${description}`;
+
+                // Populate the star rating based on the rating value
+                
+	              // Initialize an empty string to store the star rating HTML
+								let starRating = "";
+								// This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
+                for (let i = 0; i < rating; i++) {
+                    starRating += '<span class="material-icons">star</span>';
+                }
+								// After the first loop, this second loop runs from i=rating to i<5.
+                for (let i = rating; i < 5; i++) {
+                    starRating += '<span class="material-icons">star_outline</span>';
+                }
+                reviewCard.querySelector(".star-rating").innerHTML = starRating;
+
+                hikeCardGroup.appendChild(reviewCard);
             });
-
-            propertyList.appendChild(propertyItem);
         });
-    });
-});
+}
+
+populateReviews();

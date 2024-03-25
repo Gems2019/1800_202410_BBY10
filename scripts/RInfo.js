@@ -2,7 +2,7 @@
 
 function writeRentals() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var unitsRef = db.collection("rentals");
+    var RentalsRef = db.collection("rentals");
 
     
     RentalsRef.add({
@@ -62,7 +62,7 @@ function writeRentals() {
         rcost: "1900 Cad",
         last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
-    Rentalsref.add({
+    RentalsRef.add({
         code: "unit1",
         name: "4132 Dawson St",
         city: "Burnaby",
