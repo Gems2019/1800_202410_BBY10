@@ -91,10 +91,8 @@ function displayCardsDynamically(collection) {
                 var details = doc.data().details;  // get value of the "details" key
 				var area = doc.data().city; //pulls city location
                 var region = doc.data().province; //pulls province data
-                var unitsCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image
-                
+                var unitsCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image 
                 var cost = doc.data().rcost; //cost of the unit
-
                 var docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
@@ -106,7 +104,7 @@ function displayCardsDynamically(collection) {
              
                 newcard.querySelector('.card-rcost').innerHTML = "Monthly Rent " + "$" + cost;
                 newcard.querySelector('.card-image').src = `./images/${unitsCode}.jpg`; //Example: NV01.jpg
-                newcard.querySelector('a').href = "propertyDetailPage.html?docID="+docID;
+                newcard.querySelector('a').href = "eachProperty.html?docID="+docID;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);

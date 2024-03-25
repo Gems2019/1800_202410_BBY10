@@ -45,64 +45,27 @@
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-
-
-    <!-- the body of your page goes here -->
-
     <nav id="navbarPlaceholder"></nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
     <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <div class="container">
-        <h1><span id="unitName">this property</span></h1>
-        <div class="position-relative">
-            <img class="unit-img responsive" src="" alt="Hike photo">
-            <button class="btn btn-primary position-absolute bottom-0 end-0 m-3"
-                onclick="saveHikeDocumentIDAndRedirect()">I'm renting it!</button>
+    <div class="card text-center">
+        <div class="card-header">
+            Rental information received successfully!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Thanks for submitting your information!</h5>
+            <a href="propertiesListingPage.html" class="btn btn-primary">See More Properties</a>
         </div>
     </div>
 
-    <div class="container">
-        <h2>Renter Information:</h2>
-        <div id="details-go-here"></div>
-        <!-- Here is the container for cards with horizontal scrolling -->
-        <div class="card-container">
-            <div id="reviewCardGroup" class="row row-cols-auto">
-                <!-- Add your card templates here -->
-            </div>
-        </div>
-    </div>
-
-    <template id="reviewCardTemplate">
-        <div class="card bg-secondary">
-            <img class="card-img-top">
-            <div class="card-body bg-light">
-                <h5 class="title">placeholder</h5>
-                <p class="star-rating"></p>
-                <p class="time">placeholder</p>
-                <p class="level">placeholder</p>
-                <p class="season">placeholder</p>
-                <p class="alone">placeholder</p>
-                <p class="pet">placeholder</p>
-                <br>
-                <p class="description">This card has supporting text below as a natural lead-in to additional content.
-                </p>
-            </div>
-        </div>
-    </template>
-    <br>
-    <br>
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 
-
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/eachProperty.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
