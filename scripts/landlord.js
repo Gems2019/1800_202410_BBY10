@@ -1,5 +1,5 @@
-function populatetenants() {
-    console.log("tenants");
+function populateTenants() {
+    console.log("Tenants");
     let hikeCardTemplate = document.getElementById("reviewCardTemplate");
     let hikeCardGroup = document.getElementById("reviewCardGroup");
 
@@ -53,3 +53,4 @@ function populatetenants() {
 }
 
 populateReviews();
+
