@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
           timestamp: new Date().toLocaleDateString("en-US"), // Format the date as you need
           owner: landlordID,
         };
-
         // Store the review data in the tenant's document under 'reviews'
         const db = firebase.firestore(); // Assuming firestore is already initialized
         const tenantRef = db.collection('users').doc(tenantID);
