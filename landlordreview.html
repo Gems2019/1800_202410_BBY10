@@ -18,7 +18,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -27,14 +27,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
 </head>
@@ -46,96 +46,65 @@
 
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
-<br>
-<br>
+
     <!-- the body of your page goes here -->
+    <!-- stuff -->
+    <nav id="navbarPlaceholder"></nav>
+
+    <!-- the body of your page goes here -->
+    <!-- stuff -->
     <div class="container">
         <br>
-        <h1>Hi, are you going to rent <span id="rentalName"> Renter Name</span>?</h1>
-             <h1>Please fill in the information!</h1>
+        <h1>Review of <span id="renterName">Renter</span></h1>
         <br>
         <form>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Add name</label>
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <label for="exampleFormControlInput1">Renters Name?</label>
+                <input type="text" class="form-control" id="title" placeholder="Tenant">
             </div><br>
             <div class="form-group">
-                <div class="card-body">
-                    
                 </div>
-                <label for="exampleFormControlSelect1">What was the level of your tolerance to noise?</label>
+                <label for="exampleFormControlSelect1">Out of 5, how would you rate your experience with the Tenant:</label>
                 <select class="form-control" id="level">
-                    <option>Hard</option>
-                    <option>Moderate</option>
-                    <option>Easy</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
                 <br>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Which season will you move in?</label>
+                    <label for="exampleFormControlSelect1">Would you refer the Tenant in the future?</label>
                     <select class="form-control" id="season">
-                        <option>Fall</option>
-                        <option>Winter</option>
-                        <option>Spring</option>
-                        <option>Summer</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">What do you want to say to landlord?</label>
+                    <label for="exampleFormControlTextarea1">Additional comments about the experience with the Tenant:</label>
                     <textarea class="form-control" id="description" rows="3"></textarea>
                 </div>
                 <br>
-                <!-- Flooded -->
-                <label>With pet? <span style="display:inline-block; width: 26pt;"></span></label>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pet" value="Yes">
-                    <label>Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pet" value="No">
-                    <label>No</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pet" value="unSure" checked="">
-                    <label>Not sure</label>
-                </div>
-                <br>
-                <!-- Scramble -->
-                <label>Move alone? <span style="display:inline-block; width: 20pt;"></span></label>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="alone" value="Yes">
-                    <label>Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="alone" value="No">
-                    <label>No</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="alone" value="unSure" checked="">
-                    <label>Not sure</label>
-                </div>
-
+             
                 <br>
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-lg btn-primary pull-right"
-                        onclick="writeRenters()">Submit</button>
+                        onclick="writeReview()">Submit</button>
                 </div>
             </div>
         </form>
     </div>
-<br>
-<br>
+
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="scripts/renterInfo.js"></script>
+    <script src="./scripts/landlordreview.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
