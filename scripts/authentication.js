@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = "profile.html";
           return false; // Prevent default redirect behavior
         } else {
-          // User is not new, allow default redirect behavior
-          return true;
+          // User is not new, load it into main.html
+          window.location.href = "main.html";
+          return false;
         }
       },
       uiShown: function () {

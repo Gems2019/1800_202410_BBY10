@@ -34,7 +34,7 @@
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
-    <https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
 </head>
@@ -55,16 +55,22 @@
     <!-- stuff -->
     <div class="container">
         <br>
-        <h1>Review of <span id="renterName">Renter</span></h1>
+        <h1>Review of <span id="rentalsName">Tenant</span></h1>
         <br>
         <form>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Renters Name?</label>
+                <label for="exampleFormControlInput1">Tenants Name?</label>
                 <input type="text" class="form-control" id="title" placeholder="Tenant">
             </div><br>
-            <div class="form-group">
-                </div>
-                <label for="exampleFormControlSelect1">Out of 5, how would you rate your experience with the Tenant:</label>
+            <div class="card-body">
+                <p>Rate your overall experience:</p>
+                <span class="material-icons star" id="star1">star_outline</span>
+                <span class="material-icons star" id="star2">star_outline</span>
+                <span class="material-icons star" id="star3">star_outline</span>
+                <span class="material-icons star" id="star4">star_outline</span>
+                <span class="material-icons star" id="star5">star_outline</span>
+            </div><br>
+                <label for="exampleFormControlSelect1">Out of 5, how would you rate the communication between you and the Tenant:</label>
                 <select class="form-control" id="level">
                     <option>1</option>
                     <option>2</option>
@@ -102,8 +108,9 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <!--<script src="./scripts/landlord.js"></script> -->
     <script src="./scripts/landlordreview.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
