@@ -35,7 +35,7 @@ function populateReviews() {
 
                 // Populate the star rating based on the rating value
                 
-	              // Initialize an empty string to store the star rating HTML
+	              // Initialize .an empty string to store the star rating HTML
 								let starRating = "";
 								// This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
                 for (let i = 0; i < rating; i++) {
