@@ -1,7 +1,36 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Assuming there's a form with id 'reviewForm' and an input for the review message with id 'reviewMessage'
   const form = document.getElementById('reviewForm');
-  const reviewMessageInput = document.getElementById('reviewMessage');
+  let tenantTitle = document.getElementById("title").value;
+  let tenantLevel = document.getElementById("level").value;
+  let tenantSeason = document.getElementById("season").value;
+  let tenantDescription = document.getElementById("description").value;
+
+  // Get the star rating
+  // Get all the elements with the class "star" and store them in the 'stars' variable
+  const stars = document.querySelectorAll('.star');
+  // Initialize a variable 'hikeRating' to keep track of the rating count
+  let tenantRating = 0;
+  // Iterate through each element in the 'stars' NodeList using the forEach method
+  stars.forEach((star) => {
+      // Check if the text content of the current 'star' element is equal to the string 'star'
+      if (star.textContent === 'star') {
+          // If the condition is met, increment the 'hikeRating' by 1
+          tenantRating++;
+      }
+  });
+
+  // Function to generate a unique ID for the review
+  function generateUniqueID() {
+    // Use the current timestamp as the base
+    const timestamp = Date.now().toString(36); // Convert to base 36 for compactness
+    // Generate a random string
+    const randomString = Math.random().toString(36).substr(2, 9); // 9 characters from the random fraction
+    // Combine them to form a unique ID
+    return `${timestamp}-${randomString}`;
+  }
 
   // Function to handle form submission
   form.addEventListener('submit', function(event) {
@@ -19,7 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Now, construct the review data
         const reviewData = {
           id: generateUniqueID(), // Implement this function based on your ID generation logic
-          message: reviewMessageInput.value,
+          title: tenantTitle,
+          level: tenantLevel,
+          season: tenantSeason,
+          description: tenantDescription,
+          rating: tenantRating, // Include the rating in the review
           timestamp: new Date().toLocaleDateString("en-US"), // Format the date as you need
           owner: landlordID,
         };
@@ -34,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log('Review added successfully.');
           // Here, redirect to the tenant's profile page
           // Assuming the tenant's profile page URL looks like 'tenantProfile.html?userID=<TenantID>'
-          window.location.href = `tenantProfile.html?userID=${tenantID}`; //URL LINK!
+          // window.location.href = `tenantProfile.html?userID=${tenantID}`; //URL LINK!
+          window.location.href = "thankyou2.html"
         }).catch(error => {
           console.error("Error adding review: ", error);
         });
@@ -47,14 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Function to generate a unique ID for the review
-  function generateUniqueID() {
-    // Use the current timestamp as the base
-    const timestamp = Date.now().toString(36); // Convert to base 36 for compactness
-    // Generate a random string
-    const randomString = Math.random().toString(36).substr(2, 9); // 9 characters from the random fraction
-    // Combine them to form a unique ID
-    return `${timestamp}-${randomString}`;
-  }
+
 
 });
