@@ -1,132 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Property Post</title>
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- Boostrap Library JS CDN  go here -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./styles/mainstyle.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
-    />
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-  </head>
-  <body>
-    <div id="navbarPlaceholder"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Property Post</title>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./styles/mainstyle.css" />
 
-    <div class="container mt-5 p-3">
-      <h2>Create Property Post</h2>
-      <form id="createPropertyForm">
-        <div class="mb-3 col-md-6">
-          <label for="propertyName" class="form-label">Property Name</label>
-          <input type="text" class="form-control" id="propertyName" placeholder="Enter property name" required>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/main.html"><img src="../images/LogoI2.png" height="36">
+        Rental Management System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#">Landlords</a>
+          <a class="nav-link" href="#">Renters</a>
+          <a class="nav-link" href="../about.html">About</a>
+          <a class="nav-link" href="#">Contact</a>
+          <!-- ensure this button is only display if the landlord's navbar -->
+          <a class="nav-link" href="createProperty.html">Post a Property</a>
+          <a class="nav-link" href="eachTenantlist.html">Your tenant list</a>
+          <!--  -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Support
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Legal advice</a></li>
+              <li><a class="dropdown-item" href="#">Chat bot</a></li>
+              <li><a class="dropdown-item" href="#">Customer service</a></li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+            </ul>
+          </li>
+
+          <!-- <div><h1>Hi
+                  </h1> <span id="quote-goes-here"></span>
+                  </div> -->
+
+          <a href="../welcome.html" class="btn btn-primary cta-button">Log out</a>
+
+
+
         </div>
-        <div class="mb-3 col-md-6">
-          <label for="city" class="form-label">City</label>
-          <input type="text" class="form-control" id="city" placeholder="Enter city" required>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="province" class="form-label">Province</label>
-          <select class="form-select" id="province" required>
-            <!-- Canadian Provinces -->
-            <option value="">Select a province</option>
-            <option value="AB">Alberta</option>
-            <option value="BC">British Columbia</option>
-            <option value="MB">Manitoba</option>
-            <option value="NB">New Brunswick</option>
-            <option value="NL">Newfoundland and Labrador</option>
-            <option value="NS">Nova Scotia</option>
-            <option value="ON">Ontario</option>
-            <option value="PE">Prince Edward Island</option>
-            <option value="QC">Quebec</option>
-            <option value="SK">Saskatchewan</option>
-            <option value="NT">Northwest Territories</option>
-            <option value="NU">Nunavut</option>
-            <option value="YT">Yukon</option>
+      </div>
+  </nav>
+
+
+  <div class="container mt-5 p-3">
+    <h2>Create Property Post</h2>
+    <form id="createPropertyForm">
+      <div class="mb-3 col-md-6">
+        <label for="propertyName" class="form-label">Property Name</label>
+        <input type="text" class="form-control" id="propertyName" placeholder="Enter property name" required>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter city" required>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="province" class="form-label">Province</label>
+        <select class="form-select" id="province" required>
+          <!-- Canadian Provinces -->
+          <option value="">Select a province</option>
+          <option value="AB">Alberta</option>
+          <option value="BC">British Columbia</option>
+          <option value="MB">Manitoba</option>
+          <option value="NB">New Brunswick</option>
+          <option value="NL">Newfoundland and Labrador</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="ON">Ontario</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="QC">Quebec</option>
+          <option value="SK">Saskatchewan</option>
+          <option value="NT">Northwest Territories</option>
+          <option value="NU">Nunavut</option>
+          <option value="YT">Yukon</option>
+        </select>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="level" class="form-label">Level</label>
+        <select class="form-select" id="level" required>
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
+          <option value="Duplex">Duplex</option>
+          <option value="Condo">Condo</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label for="bedrooms" class="form-label">Bedrooms</label>
+          <select class="form-select" id="bedrooms" required>
+            <option value="">Select</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+            <option value="4">4 Bedrooms</option>
+            <option value="5">5 Bedrooms</option>
+            <option value="6+">6+ Bedrooms</option>
           </select>
         </div>
-        <div class="mb-3 col-md-6">
-          <label for="level" class="form-label">Level</label>
-          <select class="form-select" id="level" required>
-            <option value="Apartment">Apartment</option>
-            <option value="House">House</option>
-            <option value="Duplex">Duplex</option>
-            <option value="Condo">Condo</option>
-            <!-- Add more options as needed -->
+
+        <div class="col-md-3">
+          <label for="bathrooms" class="form-label">Bathrooms</label>
+          <select class="form-select" id="bathrooms" required>
+            <option value="">Select</option>
+            <option value="1">1 Bathroom</option>
+            <option value="1.5">1.5 Bathrooms</option>
+            <option value="2">2 Bathrooms</option>
+            <option value="2.5">2.5 Bathrooms</option>
+            <option value="3">3 Bathrooms</option>
+            <option value="3.5">3.5 Bathrooms</option>
+            <option value="4+">4+ Bathrooms</option>
           </select>
         </div>
-        <div class="row g-3">
-          <div class="col-md-3">
-            <label for="bedrooms" class="form-label">Bedrooms</label>
-            <select class="form-select" id="bedrooms" required>
-              <option value="">Select</option>
-              <option value="1">1 Bedroom</option>
-              <option value="2">2 Bedrooms</option>
-              <option value="3">3 Bedrooms</option>
-              <option value="4">4 Bedrooms</option>
-              <option value="5">5 Bedrooms</option>
-              <option value="6+">6+ Bedrooms</option>
-            </select>
-          </div>
+      </div>
 
-          <div class="col-md-3">
-            <label for="bathrooms" class="form-label">Bathrooms</label>
-            <select class="form-select" id="bathrooms" required>
-              <option value="">Select</option>
-              <option value="1">1 Bathroom</option>
-              <option value="1.5">1.5 Bathrooms</option>
-              <option value="2">2 Bathrooms</option>
-              <option value="2.5">2.5 Bathrooms</option>
-              <option value="3">3 Bathrooms</option>
-              <option value="3.5">3.5 Bathrooms</option>
-              <option value="4+">4+ Bathrooms</option>
-            </select>
-          </div>
+      <div class="mb-3 col-md-6">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Enter property description"
+          required></textarea>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="rcost" class="form-label">Rental Cost</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" id="rcost" placeholder="Enter rental cost" required>
         </div>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label for="propertyImage" class="form-label">Property Image</label>
+        <input type="file" class="form-control" id="propertyImage">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
-        <div class="mb-3 col-md-6">
-          <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" id="description" rows="3" placeholder="Enter property description" required></textarea>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="rcost" class="form-label">Rental Cost</label>
-          <div class="input-group">
-            <span class="input-group-text">$</span>
-            <input type="text" class="form-control" id="rcost" placeholder="Enter rental cost" required>
-          </div>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="propertyImage" class="form-label">Property Image</label>
-          <input type="file" class="form-control" id="propertyImage">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+  <nav id="footerPlaceholder"></nav>
 
-    <nav id="footerPlaceholder"></nav>
+  <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/createProperty.js"></script>
+</body>
 
-    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/createProperty.js"></script>
-  </body>
 </html>
