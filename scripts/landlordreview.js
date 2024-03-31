@@ -17,6 +17,7 @@ function getrentalsName(id) {
         document.getElementById("tenantName").innerHTML = tenantName;
           });
 } 
+
 function writeReview() {
     console.log("inside write review");
     let tenantTitle = document.getElementById("title").value;
