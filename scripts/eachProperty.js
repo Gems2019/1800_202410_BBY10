@@ -1,5 +1,3 @@
-
-
 function displayRentalInfo() {
     let params = new URL( window.location.href ); //get URL of search bar
     let ID = params.searchParams.get( "docID" ); //get value for key "id"
@@ -66,37 +64,65 @@ function displayRentalInfo() {
 }
 displayRentalInfo();
 
-function getNameFromAuth() {
+function sentRentalRequest() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if a user is signed in:
         if (user) {
-            // Do something for the currently logged-in user here: 
-            console.log(user.uid); //print the uid in the browser console
-            console.log(user.displayName);  //print the user name in the browser console
-            userName = user.displayName;
+            // User is signed in, let's get the UID
+            const tenantId = user.uid;
+            console.log('UID stored in local storage:', tenantId);
 
-            // method #1:  insert with JS
-            document.getElementById("rentername-goes-here").innerText = userName;    
+            // Retrieve rentalDocID from local storage
+            var rentalDocID = localStorage.getItem('rentalDocID');
+            window.location.href = 'thanks.html';
 
-            //method #2:  insert using jquery
-            //$("#name-goes-here").text(userName); //using jquery
+            if (rentalDocID) {
+                // Fetch rental document based on rentalDocID
+                db.collection("rentals")
+                    .doc(rentalDocID)
+                    .get()
+                    .then(doc => {
+                        if (doc.exists) {
+                            var landlordID = doc.data().owner; // Correctly accessing the document's data
 
-            //method #3:  insert using querySelector
-            //document.querySelector("#name-goes-here").innerText = userName
-
+                            // Fetch user document based on landlordID
+                            db.collection("users")
+                                .doc(landlordID)
+                                .get()
+                                .then(doc => {
+                                    if (doc.exists) {
+                                        // Update the 'matched' array to include tenantId
+                                        db.collection("users").doc(landlordID).update({
+                                            matched: firebase.firestore.FieldValue.arrayUnion(tenantId)
+                                        }).then(() => {
+                                            console.log("TenantId added to matched array.");
+                                        }).catch(error => {
+                                            console.error("Error updating document: ", error);
+                                        });
+                                    } else {
+                                        console.log("No such landlord document!");
+                                    }
+                                }).catch(error => {
+                                    console.error("Error fetching landlord document:", error);
+                                });
+                        } else {
+                            console.log("No such rental document!");
+                        }
+                    }).catch(error => {
+                        console.error("Error fetching rental document:", error);
+                    });
+            } else {
+                console.log('No rentalDocID found in local storage.');
+            }
         } else {
-            // No user is signed in.
-            console.log ("No user is logged in");
+            // User is signed out
+            console.log('No user signed in.');
         }
     });
-}
-getNameFromAuth(); //run the function
 
-document.getElementById('renting').addEventListener('click', function() {
-    const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML += '<p>Name: John Doe</p>';
-    contentDiv.innerHTML += '<button>Button 1</button>';
-    contentDiv.innerHTML += '<button>Button 2</button>';
-});
+    // Assuming there's an element with the ID 'renting' that when clicked, triggers this request
+    
 
 
+
+document.getElementById("renting").addEventListener("click", function onRentingClick() {
+    sentRentalRequest()})}

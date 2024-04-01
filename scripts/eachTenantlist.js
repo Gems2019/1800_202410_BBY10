@@ -58,23 +58,4 @@ function populateRenters() {
 
 populateRenters();
 
-document.getElementById('accept').addEventListener('click', function() {
-    saveTenant();
-  });
-  
-  function saveTenant(tenantDocID) {
-    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
-    currentUser.update({
-        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        matched: firebase.firestore.FieldValue.arrayUnion(tenantDocID)
-    })
-        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
-        .then(function () {
-            console.log("matched has been saved for" + tenantDocID);
-            let availableID = 'save-' + tenantDocID;
-            //console.log(iconID);
-            //this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(availableID).innerText = 'available';
-        });
-  }
+

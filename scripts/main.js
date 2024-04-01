@@ -23,3 +23,10 @@ function getNameFromAuth() {
     });
 }
 getNameFromAuth(); //run the function
+
+function saveRentalDocumentIDAndRedirect(){
+    let params = new URL(window.location.href) //get the url from the search bar
+    let ID = params.searchParams.get("docID");
+    localStorage.setItem('rentalDocID', ID);
+    window.location.href = 'renterInfo.html';
+}

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (role === "landlord") {
               window.location.href = "landlordmain.html";
             } else {
-              window.location.href = "main.html";
+              window.location.href = "tenantmain.html";
             }
           })
           .catch((error) => {
