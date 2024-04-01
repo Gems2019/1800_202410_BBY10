@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+</head>
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #343a40;
+        /* Dark gray background */
+    }
+
+    .container {
+        padding-top: 20px;
+        background-color: lightgoldenrodyellow;
+        /* Light background for the content area */
+        min-height: 100vh;
+        /* Full height */
+    }
+
+    #usersContainer {
+        justify-content: center;
+        /* Center the cards horizontally */
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        /* Spacing between cards */
+        justify-content: center;
+        /* Ensure this is centered */
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        background-color: white;
+        /* Adjust based on your preference */
+        margin: auto;
+        /* Center the card */
+    }
+
+    .card-body {
+        text-align: center;
+        /* Centers the text horizontally */
+    }
+
+    /* Optional: If you have specific elements like headings, paragraphs, etc., you can target them specifically */
+    .card-body h5,
+    .card-body p {
+        text-align: center;
+    }
+
+    #reviewCardGroup {
+        display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the space between cards */
+    justify-content: flex-start; /* Align items to the start of the container */
+}
+</style>
+
+
+<nav id="navbarPlaceholder"></nav>
+
+<body>
+
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" style="color: #343a40;"><b>My Profile Page</b></h2>
+
+        <div id="usersContainer" class="row">
+            <!-- User cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Center the buttons under the logo -->
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <a href="../tenantProfile.html" class="btn btn-primary cta-button" style="padding: 5px;">Update
+                    Information</a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <div class="text-center">
+                <a href="../landlordreview.html" class="btn btn-primary cta-button" style="padding: 5px;">Leave a
+                    Review!</a>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="text-center">Reviews from Landlords</h2>
+
+            <div id="details-go-here"></div>
+            <!-- Here is the container for cards with horizontal scrolling -->
+            <div class="card-container">
+                <div id="reviewCardGroup" class="row row-cols-auto">
+                    <!-- Add your card templates here -->
+                </div>
+            </div>
+        </div>
+
+        <template id="reviewCardTemplate">
+            <div class="card bg-secondary">
+                <img class="card-img-top">
+                <div class="card-body bg-light">
+                    <h5 class="title">placeholder</h5>
+                    <p class="time">placeholder</p>
+                    <p class="communication-level">Communication Level: placeholder</p>
+                    <p class="refer-future">Refer Tenant in the Future: placeholder</p>
+                    <p class="description">Description: placeholder</p>
+                </div>
+            </div>
+        </template>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
+<!-- Footer and scripts here -->
+
+
+
+<!-- our own footer goes here-->
+
+<!--- <nav id="footerPlaceholder"></nav> -->
+
+<!-- Bootstrap JS bundle with Popper -->
+<script src="./scripts/firebaseAPI_TEAM10.js"></script>
+<script src="./scripts/skeleton.js"></script>
+<script src="./scripts/tenantProfile2.js"></script>
+<script src="./scripts/tenantreviews.js"></script>
+<script src="./scripts/tenantreviews2.js"></script>
+</body>
+
+</html>
