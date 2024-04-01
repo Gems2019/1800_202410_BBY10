@@ -39,8 +39,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Landlords</a>
-                    <a class="nav-link" href="#">Renters</a>
+                    <!-- <a class="nav-link" href="#">Landlords</a>
+                    <a class="nav-link" href="#">Renters</a> -->
                     <a class="nav-link" href="../about.html">About</a>
                     <a class="nav-link" href="#">Contact</a>
                     <!-- ensure this button is only display if the landlord's navbar -->
@@ -93,22 +93,19 @@
 
     <div class="b-example-divider"></div>
 
-    <div class="px-4 pt-5 my-5 text-center border-bottom rounded-3 border shadow-lg">
-        <h1 class="display-4 fw-bold">Simplify Your Renting Experience - Where Landlords Meet Efficiency</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4"> Streamline property management with a platform that merges efficiency with
-                innovation. Landlords save time through automated rent collection, tenant screening, and maintenance
-                oversight, enhancing the renting journey for all.</p>
+    <div id="content" class="px-4 pt-5 my-5 text-center border-bottom rounded-3 border shadow-lg">
+        <h3 class="display-4 fw-bold"><span id="rentername-goes-here"></span> wants to rent your property.</h3>
+        <div id="showButton" class="col-lg-6 mx-auto"> 
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                 <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button> -->
-                <a href="propertiesListingPage.html" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">See more
-                    properties</a>
+                <a href="propertiesListingPage.html" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">Accept</a>
+                    <a href="" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">Deny</a>
             </div>
         </div>
         <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-                <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                    width="700" height="500" loading="lazy">
+                <!-- <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                    width="700" height="500" loading="lazy"> -->
             </div>
         </div>
     </div>
@@ -118,7 +115,7 @@
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/eachProperty.js"></script>
 </body>
 
 </html>
