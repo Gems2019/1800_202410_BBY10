@@ -15,7 +15,7 @@ function writeRentals() {
             details: "Bedroom/Bathroom: 2/2",
             description: "No smoking/1 small pet allowed, water included, electricity is not included.",
             rcost: "3200 Cad",
-            userID: userID,
+    
             last_updated: firebase.firestore.FieldValue.serverTimestamp()
         });
 

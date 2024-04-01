@@ -36,3 +36,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the FirebaseUI authentication UI
   ui.start("#firebaseui-auth-container", uiConfig);
 });
+

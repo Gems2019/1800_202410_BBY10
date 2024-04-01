@@ -22,7 +22,11 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-
+    <style>
+        .uppercase {
+          text-transform: uppercase;
+        }
+        </style>
 
 
 </head>
@@ -94,7 +98,7 @@
     <div class="b-example-divider"></div>
 
     <div id="content" class="px-4 pt-5 my-5 text-center border-bottom rounded-3 border shadow-lg">
-        <h3 class="display-4 fw-bold"><span id="rentername-goes-here"></span> wants to rent your property.</h3>
+        <h3 class="display-4 fw-bold">Tenant <span  id="matchedUserName"></span> wants to rent your property.</h3>
         <div id="showButton" class="col-lg-6 mx-auto"> 
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                 <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button> -->
@@ -115,7 +119,7 @@
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/eachProperty.js"></script>
+    <!-- <script src="./scripts/eachProperty.js"></script> -->
     <script src="./scripts/landlordmain.js"></script>
 </body>
 
