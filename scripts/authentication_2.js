@@ -32,8 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
         db.collection('users').doc(user.uid).set(userData)
           .then(() => {
             console.log(`User registered as ${role}.`);
-            // Redirect user to the main page
-            window.location.href = 'main.html';
+            // Redirect user based on the selected role
+            if (role === 'landlord') {
+              window.location.href = 'landlord.html';
+            } else {
+              window.location.href = 'main.html';
+            }
           })
           .catch(error => {
             console.error("Error registering user: ", error);
