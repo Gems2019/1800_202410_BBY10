@@ -59,63 +59,6 @@ function displayRentalInfo() {
 }
 displayRentalInfo();
 
-// function sentRentalRequest() {
-//     firebase.auth().onAuthStateChanged(user => {
-//         if (user) {
-//             // User is signed in, let's get the UID
-//             const tenantId = user.uid;
-//             console.log('tenantId', tenantId);
-
-//             // Retrieve rentalDocID from local storage
-//             // var rentalDocID = localStorage.getItem('rentalDocID');
-//             const urlParams = new URLSearchParams(window.location.search);
-//             const rentalDocID = urlParams.get('docID'); // Ensure 'userID' is the correct query parameter name //URL LINK!
-
-//             if (rentalDocID) {
-//                 // Fetch rental document based on rentalDocID
-//                 db.collection("rentals")
-//                     .doc(rentalDocID)
-//                     .get()
-//                     .then(doc => {
-//                         if (doc.exists) {
-//                             var landlordID = doc.data().owner; // Correctly accessing the document's data
-
-//                             // Fetch user document based on landlordID
-//                             db.collection("users")
-//                                 .doc(landlordID)
-//                                 .get()
-//                                 .then(doc => {
-//                                     if (doc.exists) {
-//                                         // Update the 'matched' array to include tenantId
-//                                         db.collection("users").doc(landlordID).update({
-//                                             matched: firebase.firestore.FieldValue.arrayUnion(tenantId)
-//                                         }).then(() => {
-//                                             console.log("TenantId added to matched array.");
-//                                         }).catch(error => {
-//                                             console.error("Error updating document: ", error);
-//                                         });
-//                                     } else {
-//                                         console.log("No such landlord document!");
-//                                     }
-//                                 }).catch(error => {
-//                                     console.error("Error fetching landlord document:", error);
-//                                 });
-//                         } else {
-//                             console.log("No such rental document!");
-//                         }
-//                     }).catch(error => {
-//                         console.error("Error fetching rental document:", error);
-//                     });
-//             } else {
-//                 console.log('No rentalDocID found in local storage.');
-//             }
-//         } else {
-//             // User is signed out
-//             console.log('No user signed in.');
-//         }
-//         window.location.href = 'thanks.html';
-//     });
-
     async function sentRentalRequest() {
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
