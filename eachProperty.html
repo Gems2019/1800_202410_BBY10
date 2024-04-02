@@ -61,8 +61,8 @@
         <h1>Address: <span id="rentalName">this property</span></h1>
         <div class="position-relative">
             <img class="unit-img responsive" src="unit1" alt="Property photo" width="1300" height="750">
-            <button class="btn btn-primary position-absolute bottom-0 end-0 m-3"
-                onclick="saveRentalDocumentIDAndRedirect()">I'm renting it!</button>
+           <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" id="renting"
+                onclick="sentRentalRequest()" onclick="redirect">I'm renting it!</button>
         </div>
         <!-- <p>Address: <span id="rentalName">this property</span></p> -->
         <h1>More details</h1>
@@ -179,7 +179,7 @@
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/eachProperty.js"></script>
-    <script src="./scripts/renterInfo.js"></script>
+    <!-- <script src="./scripts/renterInfo.js"></script> -->
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>

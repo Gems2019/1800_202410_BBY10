@@ -8,7 +8,7 @@ function getNameFromAuth() {
             userName = user.displayName;
 
             // method #1:  insert with JS
-            document.getElementById("name-goes-here").innerText = userName;    
+            document.getElementById("name-goes-here").innerHTML = userName;    
 
             //method #2:  insert using jquery
             //$("#name-goes-here").text(userName); //using jquery
@@ -23,3 +23,4 @@ function getNameFromAuth() {
     });
 }
 getNameFromAuth(); //run the function
+
