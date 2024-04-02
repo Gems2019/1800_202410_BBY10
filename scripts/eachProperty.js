@@ -64,10 +64,10 @@ displayRentalInfo();
             if (user) {
                 const tenantId = user.uid;
                 console.log('tenantId', tenantId);
-    
+
                 const urlParams = new URLSearchParams(window.location.search);
                 const rentalDocID = urlParams.get('docID');
-    
+
                 if (rentalDocID) {
                     try {
                         const rentalDoc = await db.collection("rentals").doc(rentalDocID).get();
@@ -102,5 +102,6 @@ displayRentalInfo();
     document.getElementById("renting").addEventListener("click", function onRentingClick() {
         sentRentalRequest()
     })
+
 
 
