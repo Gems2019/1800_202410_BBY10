@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // User is signed in, proceed with role selection
         console.log("Selected role: ", role);
 
+        // Storing user role in localStorage
+        localStorage.setItem('userRole', role);
+
         // Updated userData with role information
         const userData = {
           name: user.displayName,
