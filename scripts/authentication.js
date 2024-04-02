@@ -12,8 +12,23 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = "profile.html";
           return false; // Prevent default redirect behavior
         } else {
-          // User is not new, load it into main.html
-          window.location.href = "main.html";
+          var db = firebase.firestore();
+          var userId = firebase.auth().currentUser.uid; // Get the current user's UID
+          db.collection('users').doc(userId).get().then(doc => {
+            if (doc.exists) {
+              var role = doc.data().role; // Access the role field from the document
+              // Use the role as needed
+              if (role === 'tenant') {
+                window.location.href = "tenantmain.html";
+              } else if (role === 'landlord') {
+                window.location.href = "landlordmain.html";
+              }
+            } else {
+              // Handle the case where there is no document for the user
+            }
+          }).catch(error => {
+            console.log("Error getting document:", error);
+          });
           return false;
         }
       },
