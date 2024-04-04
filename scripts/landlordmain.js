@@ -1,112 +1,120 @@
-// async function displayMatchedUserName() {
-//     try {
-//       // Assuming 'firebase.auth().currentUser' is not null and the user is logged in
-//       const currentUser = firebase.auth().currentUser;
-//       if (!currentUser) {
-//         console.log('No user is currently logged in.');
-//         return;
-//       }
-  
-//       // Get the current logged-in user's document from Firestore
-//       const userDocRef = db.collection('users').doc(currentUser.uid);
-//       const userDocSnapshot = await userDocRef.get();
-//       if (userDocSnapshot.exists) {
-//         // Get the match ID from the user's document
-//         const matchId = userDocSnapshot.data().matched[0]; // Assuming 'matched' is an array and we want the first element
-        
-//         // Get the document of the matched user by match ID
-//         const matchedUserDocRef = db.collection('users').doc(matchId);
-//         const matchedUserDocSnapshot = await matchedUserDocRef.get();
-//         if (matchedUserDocSnapshot.exists) {
-//           // Get the name field from the matched user's document
-//           const matchedUserName = matchedUserDocSnapshot.data().name;
-          
-//           // Display the name in the HTML element with the ID 'matchedUserName'
-//           document.getElementById('matchedUserName').textContent = matchedUserName;
-//         } else {
-//           console.log('Matched user document does not exist.');
-//         }
-//       } else {
-//         console.log('Current user document does not exist.');
-//       }
-//     } catch (error) {
-//       console.error("Error fetching documents:", error);
-//     }
-//   }
-  
-//   // Call the function to update the name on the page
-//   displayMatchedUserName();
-    
-
-  function displayMatchedUserName() {
-    firebase.auth().onAuthStateChanged(async (user) => {
-        if (user) {
-            try {
-                // User is signed in, so now let's get the document from Firestore
-                const userDocRef = db.collection('users').doc(user.uid);
-                const userDocSnapshot = await userDocRef.get();
-                if (userDocSnapshot.exists) {
-                    // Get the match ID from the user's document
-                    const matchId = userDocSnapshot.data().matched[0]; // Assuming 'matched' is an array and we want the first element
-
-                    // Get the document of the matched user by match ID
-                    const matchedUserDocRef = db.collection('users').doc(matchId);
-                    const matchedUserDocSnapshot = await matchedUserDocRef.get();
-                    if (matchedUserDocSnapshot.exists) {
-                        // Get the name field from the matched user's document
-                        const matchedUserName = matchedUserDocSnapshot.data().name;
-
-                        // Display the name in the HTML element with the ID 'matchedUserName'
-                        document.getElementById('matchedUserName').textContent = matchedUserName;
-                    } else {
-                        console.log('Matched user document does not exist.');
-                    }
-                } else {
-                    console.log('Current user document does not exist.');
-                }
-            } catch (error) {
-                console.error("Error fetching documents:", error);
-            }
-        } else {
-            // No user is signed in
-            console.log('No user is currently logged in.');
-        }
-    });
-}
-
-// Call the function on page load
-document.addEventListener('DOMContentLoaded', displayMatchedUserName);
-
-
-  function changeIsAvailable() {
+// Function to update rental availability
+function changeIsAvailable() {
     firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
             try {
                 const landlordId = user.uid;
-                const landlordDocSnapshot = await db.collection("users").doc(landlordId).get(); // Corrected "user" to "users"
+                const landlordDocSnapshot = await db.collection("users").doc(landlordId).get();
                 if (landlordDocSnapshot.exists) {
-                    const rentalDocId = landlordDocSnapshot.data().property[0]; // Assuming 'property' is an array and we want the first element
+                    const rentalDocId = landlordDocSnapshot.data().property[0];
                     if (rentalDocId) {
                         await db.collection("rentals").doc(rentalDocId).update({
-                            isAvailable: false // Corrected the syntax here
+                            isAvailable: false
                         });
                         console.log('Rental availability updated.');
+                        showMessage('Rental availability updated successfully!');
                     } else {
                         console.log('No rentalDocId found for landlord:', landlordId);
+                        showMessage('No rental document ID found.');
                     }
                 } else {
                     console.log('Landlord document not found:', landlordId);
+                    showMessage('Landlord document not found.');
                 }
             } catch (error) {
                 console.error('Error updating rental availability:', error);
+                showMessage('Error updating rental availability.');
             }
         } else {
             console.log('No user signed in.');
+            showMessage('No user is currently signed in.');
         }
     });
 }
 
-  // Assuming there's an element with the ID 'renting' that when clicked, triggers this request
-  document.getElementById("accept").addEventListener("click", function onAcceptingClick() {
-    changeIsAvailable()
-})
+// Function to display a temporary message
+function showMessage(message) {
+    const messageContainer = document.getElementById('messageContainer');
+    messageContainer.textContent = message;
+    messageContainer.style.display = 'block';
+    messageContainer.setAttribute('tabindex', '-1');
+    messageContainer.focus();
+
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+    }, 2000);
+}
+
+// Function to display matched users
+function displayMatchedUsersFromCurrentUser() {
+    firebase.auth().onAuthStateChanged(async (user) => {
+        if (!user) {
+            console.log('No user is currently logged in.');
+            return;
+        }
+
+        const mainContainer = document.getElementById('mainContainer');
+        mainContainer.innerHTML = '';
+
+        try {
+            const userDocRef = db.collection('users').doc(user.uid);
+            const userDocSnapshot = await userDocRef.get();
+
+            if (userDocSnapshot.exists && userDocSnapshot.data().matched) {
+                const matchIds = userDocSnapshot.data().matched;
+                const template = document.getElementById("userTemplate");
+
+                for (const matchId of matchIds) {
+                    const matchDocRef = db.collection('users').doc(matchId);
+                    const matchDocSnapshot = await matchDocRef.get();
+                    if (matchDocSnapshot.exists) {
+                        const userName = matchDocSnapshot.data().name;
+                        let clone = template.content.cloneNode(true);
+                        clone.querySelector('.user-name').textContent = userName;
+                        mainContainer.appendChild(clone);
+                    } else {
+                        console.log(`No document found for matchId: ${matchId}`);
+                    }
+                }
+            } else {
+                console.log('Current user has no matches or document does not exist.');
+            }
+        } catch (error) {
+            console.error("Error fetching the current user's document:", error);
+        }
+    });
+}
+
+//Function to set up delete button listeners using event delegation
+function setupDeleteButtonListeners() {
+    const mainContainer = document.getElementById('mainContainer');
+    mainContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('delete-btn')) {
+            const userContainer = event.target.closest('div.user-container');
+            if (userContainer) {
+                userContainer.remove();
+            }
+        }
+    });
+}
+
+// Function to set up accept button listeners using event delegation
+function setupAcceptButtonListeners() {
+    const mainContainer = document.getElementById('mainContainer');
+    mainContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('accept')) {
+            changeIsAvailable();
+            const userContainer = event.target.closest('div.user-container');
+            if (userContainer) {
+                userContainer.remove();
+            }
+        }
+    });
+}
+
+// Initialize the app when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    displayMatchedUsersFromCurrentUser();
+    setupDeleteButtonListeners();
+    setupAcceptButtonListeners();
+});
