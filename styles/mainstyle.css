@@ -1,3 +1,18 @@
+#messageContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+  display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it appears above other content */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds a shadow for better visibility */
+  text-align: center; /* Ensures the text is centered */
+  max-width: 80%; /* Ensures the message box is not too wide on large screens */
+  word-wrap: break-word; /* Ensures long words do not extend the container */
+}
 
 .container{
 text-align: center;

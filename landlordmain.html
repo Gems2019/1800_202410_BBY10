@@ -27,9 +27,24 @@
 
     <style>
         .uppercase {
-          text-transform: uppercase;
+            text-transform: uppercase;
         }
-        </style>
+    </style>
+
+    <style>
+        .user-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .user-container button {
+            margin-right: 10px;
+        }
+    </style>
+
+
 
 
 </head>
@@ -46,11 +61,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <!-- <a class="nav-link" href="#">Landlords</a>
-                    <a class="nav-link" href="#">Renters</a> -->
+                    <a class="nav-link" href="main.html">Home</a>
+
                     <a class="nav-link" href="../about.html">About</a>
                     <a class="nav-link" href="#">Contact</a>
-                    <!-- ensure this button is only display if the landlord's navbar -->
+
                     <a class="nav-link" href="createProperty.html">Post a Property</a>
                     <a class="nav-link" href="listTenants.html">Tenant List</a>
                     <!--  -->
@@ -93,29 +108,61 @@
                 <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Sign up For Free</button> -->
                 <a href="propertiesListingPage.html" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">See more
                     properties</a>
-                    <a class="btn btn-primary cta-button btn-lg px-4 me-sm-3" href="createProperty.html">Post a Property</a>
+                <a class="btn btn-primary cta-button btn-lg px-4 me-sm-3" href="createProperty.html">Post a Property</a>
             </div>
         </div>
+
+        <div id="messageContainer"></div>
+
     </div>
+
+
 
     <div class="b-example-divider"></div>
 
     <div id="content" class="px-4 pt-5 my-5 text-center border-bottom rounded-3 border shadow-lg">
-        <p class="display-6 fw-bold">Tenant <span class ="uppercase" id="matchedUserName"></span> wants to rent your property.</>
-        <div id="showButton" class="col-lg-6 mx-auto">
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button> -->
-                <!-- href="propertiesListingPage.html" -->
-                <a  id="accept" class="btn btn-primary cta-button btn-lg px-4 me-sm-3" onclick="changeIsAvailable()">Accept</a>
-                    <a href="" class="btn btn-primary cta-button btn-lg px-4 me-sm-3">Deny</a>
-            </div>
+
+
+
+        <div id="mainContainer">
+
         </div>
-        <div class="overflow-hidden" style="max-height: 30vh;">
-            <div class="container px-5">
-                <!-- <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                    width="700" height="500" loading="lazy"> -->
+
+        <template id="userTemplate">
+            <div class="card py-2 mx-2 user-container" style="width: 18rem">
+                <!-- Placeholder for user image, if needed. Remove if not required -->
+                <img class="card-image card-img-top" src="/images/drink1.jpg" alt="Tenant Image" />
+
+                <div class="card-body">
+                    <!-- Title containing the tenant's name -->
+                    <h5 class="card-title user-name"></h5>
+
+                    <!-- Text describing the action -->
+                    <p class="card-text">
+                        Wants to rent your property.
+                    </p>
+
+                    <!-- Accept button -->
+                    <button class="btn btn-primary btn-sm px-2 me-sm-2 accept" onclick="changeIsAvailable()">Accept</button>
+                    
+
+                    <!-- Delete button -->
+                    <button class="btn btn-primary cta-button btn-sm px-4 me-sm-2 delete-btn">Deny</button>
+                </div>
             </div>
-        </div>
+        </template>
+
+
+        <!-- <template id="userTemplate">
+            <div class="user-container">
+                <h1>Tenant <p class="user-name"></p> wants to rent your property</h1>
+                <button id="accept" class="btn btn-primary cta-button btn-lg px-4 me-sm-3" onclick="changeIsAvailable()">Accept</button>
+                <button class="btn btn-primary cta-button btn-lg px-4 me-sm-3 delete-btn">Delete the message</button>
+            </div>
+        </template> -->
+
+    </div>
+    </div>
     </div>
 
     <div class="chatBot">
@@ -129,8 +176,11 @@
         </div>
         <form class="chatForm" autocomplete="off">
             <div class="typingArea">
-                <textarea name="chatInput" id="chatTextBox" class="textArea" onblur="if(!validateMessage()) this.value = 'Type here...'" onfocus="if(!validateMessage()) this.value = ''"></textarea>
-                <button type="submit" class="sendButton" id="sendButton"><img src="./ChatBot-UI/Gfx/send.svg" alt="Send" srcset=""></button>
+                <textarea name="chatInput" id="chatTextBox" class="textArea"
+                    onblur="if(!validateMessage()) this.value = 'Type here...'"
+                    onfocus="if(!validateMessage()) this.value = ''"></textarea>
+                <button type="submit" class="sendButton" id="sendButton"><img src="./ChatBot-UI/Gfx/send.svg" alt="Send"
+                        srcset=""></button>
             </div>
             <button type="button" id="chatCloseTrigger">Close Chat!</button>
         </form>
@@ -140,11 +190,11 @@
 
 
 
-        <!-- JavaScripts from native directory -->
-        <script src="./ChatBot-UI/Js/chatBotConversation.js"></script>
-        <script src="./ChatBot-UI/Js/chatBotValidate.js"></script>
-        <script src="./ChatBot-UI/Js/chatBotAnimate.js"></script>
-        <!--     <script src="./Js/chatBotCustom.js"></script> -->
+    <!-- JavaScripts from native directory -->
+    <script src="./ChatBot-UI/Js/chatBotConversation.js"></script>
+    <script src="./ChatBot-UI/Js/chatBotValidate.js"></script>
+    <script src="./ChatBot-UI/Js/chatBotAnimate.js"></script>
+    <!--     <script src="./Js/chatBotCustom.js"></script> -->
 
 
 
