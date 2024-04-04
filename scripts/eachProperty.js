@@ -48,7 +48,7 @@ function displayRentalInfo() {
             document.getElementById("rentalCity").innerHTML = rentalCity;
             document.getElementById("rentalDescription").innerHTML = rentalDescription;
             document.getElementById("rentalDetails").innerHTML = rentalDetails;
-            document.getElementById("rentalisAvailable").innerHTML = rentalisAvailable;
+            // document.getElementById("rentalisAvailable").innerHTML = rentalisAvailable;
             document.getElementById("rentalLevel").innerHTML = rentalLevel;
             document.getElementById("rentalProvince").innerHTML = rentalProvince;
             document.getElementById("rentalRcost").innerHTML = rentalRcost;
@@ -102,6 +102,39 @@ displayRentalInfo();
     document.getElementById("renting").addEventListener("click", function onRentingClick() {
         sentRentalRequest()
     })
+
+    // Check the role of the logged-in user and adjust button visibility
+function adjustButtonVisibility() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in, now get the user document
+            const userDocRef = firebase.firestore().collection('users').doc(user.uid);
+            userDocRef.get().then((doc) => {
+                if (doc.exists) {
+                    // Check the user's role
+                    const userRole = doc.data().role;
+                    if (userRole === 'landlord') {
+                        // If the user is a tenant, hide the button
+                        document.getElementById('renting').style.display = 'none';
+                    } else {
+                        // If the user is a landlord, show the button
+                        document.getElementById('renting').style.display = 'block';
+                    }
+                } else {
+                    console.log('No such document!');
+                }
+            }).catch((error) => {
+                console.log('Error getting document:', error);
+            });
+        } else {
+            // No user is signed in
+            console.log('No user is signed in.');
+        }
+    });
+}
+
+// Call the function when the page is loaded to adjust button visibility
+document.addEventListener('DOMContentLoaded', adjustButtonVisibility);
 
 
 
