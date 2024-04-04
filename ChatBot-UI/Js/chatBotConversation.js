@@ -9,9 +9,9 @@ var chatBotTextArea             = document.querySelector( ".chatBot .chatForm #c
 var chatBotInitiateMessage      = "Hello! I am ChatBot."
 var chatBotBlankMessageReply    = "Type something!"
 var chatBotReply = `
-🏠 **Welcome to HomeKey Rentals!** 🗝️
+🏠 **Welcome to Rental Managnment System!** 🗝️
 
-Hi there! 👋 I'm KeyBot, your virtual assistant, here to make your rental management experience as smooth and effortless as possible. Whether you're a landlord looking for the perfect tenants or a renter in search of your dream home, you've come to the right place!
+Hi there! 👋 I'm RentBot, your virtual assistant, here to make your rental management experience as smooth and effortless as possible. Whether you're a landlord looking for the perfect tenants or a renter in search of your dream home, you've come to the right place!
 
 **Here's how I can assist you:**
 
@@ -27,7 +27,7 @@ To get started, you can simply type what you need help with. For example:
 
 If you're not sure where to begin or have any questions, type **"Help"** or **"Support"** at any time, and I'll be right here to assist you.
 
-Thank you for choosing HomeKey Rentals. Let's make your rental experience exceptional! 🌟
+Thank you for choosing Rental Managnment System. Let's make your rental experience exceptional! 🌟
 `;
 
 
