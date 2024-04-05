@@ -27,109 +27,109 @@
 </head>
 
 <style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+    body, html {
         margin: 0;
-        font-family: 'Roboto', sans-serif;
-        background-color: lightgrey;
-    }
-
-
-    .container {
-        text-align: center;
-        /* Centers the content within the container */
-    }
-
-    .position-relative img {
-        max-width: 650px;
-        /* Adjusts the maximum width of the image */
-        max-height: 650px;
-        /* Adjusts the maximum height of the image */
-        margin: auto;
-        /* Centers the image horizontally */
-    }
-
-    .position-relative {
-        display: flex;
-        justify-content: center;
-        /* Centers the position-relative div horizontally */
-        align-items: center;
-        /* Centers the position-relative div vertically */
-        flex-direction: column;
-        /* Stacks the image and the button vertically */
-        padding-top: 30px;
-    }
-
-    #footerPlaceholder {
-        margin-top: auto;
-        /* Pushes the navbar to the bottom */
+        padding: 0;
         width: 100%;
-        /* Ensures the navbar spans the full width of the viewport */
+        height: 100%;
+        background-color: #f8f9fa; /* Soft light background */
+    }
+
+    .container, .container-fluid {
+        padding-top: 20px;
+        background-color: #ffffff; /* Bright background for content */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        border-radius: 8px; /* Rounded corners */
+        margin-bottom: 20px; /* Space at the bottom */
+    }
+
+    h2 {
+        color: #495057; /* Darker font for titles */
+    }
+
+    .card {
+        background-color: #e9ecef; /* Light grey background for cards */
+        border: none; /* Remove border */
+        transition: transform 0.2s; /* Smooth transition for hover effect */
+    }
+
+    .card:hover {
+        transform: scale(1.05); /* Slightly scale up cards on hover */
+    }
+
+    .card-img-top {
+        border-top-left-radius: calc(.25rem - 1px); /* Round top corners */
+        border-top-right-radius: calc(.25rem - 1px); /* Maintain consistent rounding with Bootstrap cards */
+    }
+
+    .card-body {
+        text-align: left; /* Align text to the left */
+        padding: 1rem; /* Standard padding */
+    }
+
+    .card .level, .card .season, .card .description, .card .time {
+        color: #343a40; /* Dark text for readability */
+        margin-bottom: 0.5rem; /* Spacing between text */
+    }
+
+    /* Review Section adjustments */
+    .review-section .container {
+        padding-top: 0; /* Remove padding for tighter grouping */
+    }
+
+    .review-section h2 {
+        margin-top: 20px; /* Space above review section title */
     }
 </style>
-
+</head>
 <body>
-    <nav id="navbarPlaceholder"></nav>
 
+<!-- Displaying personal information -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4"><b>My Profile Page</b></h2>
+    <div id="profileContainer"></div>
+</div>
+
+<!-- Review Section -->
+<div class="review-section">
     <div class="container">
-        <h1>Add/Update your tenant profile information!</h1>
-        <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label>Age</label>
-                    <input type="date" id="dobInput" class="form-control" placeholder="Enter your Date of Birth">
-                </div>
-
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" id="emailInput" class="form-control" placeholder="Enter your Email">
-                </div>
-                <div class="form-group">
-                    <label>Number</label>
-                    <input type="text" id="numberInput" class="form-control" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label>Residence</label>
-                    <input type="text" id="ResidenceInput" class="form-control" placeholder="Enter your residence">
-                </div>
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" id="titleInput" class="form-control" placeholder="Enter your Employer/Job Title">
-                </div>
-                <div class="form-group">
-                    <label for="immigrationStatusInput">Immigration Status?</label>
-                    <input type="text" id="immigrationStatusInput" class="form-control" placeholder="Enter your Immigration Status">
-                </div>
-                
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Submit</button>
+        <h2 class="text-center">Reviews from other landlords</h2>
+        <div class="d-flex justify-content-center mt-2">
+            <div class="text-center">
+                <a href="../landlordreview.html" class="btn btn-primary" style="padding: 5px;">Leave a Review!</a>
             </div>
-        </form>
+        </div>
+
+        <!-- Displaying all reviews -->
+        <div id="reviewCardGroup" class="card-container mt-3">
+            <template id="reviewCardTemplate">
+                <div class="card">
+                    <img class="card-img-top">
+                    <div class="card-body">
+                        <p class="level">Communication Level: placeholder</p>
+                        <p class="season">Refer Tenant in the Future: placeholder</p>
+                        <p class="description">Description: placeholder</p>
+                        <p class="time">placeholder</p>
+                    </div>
+                </div>
+            </template>
+        </div>
     </div>
-</body>
+</div>
+
 <!-- Footer and scripts here -->
 
 
 
 <!-- our own footer goes here-->
 
-<!--- <nav id="footerPlaceholder"></nav> -->
+- <nav id="footerPlaceholder"></nav>
 
 <!-- Bootstrap JS bundle with Popper -->
 <script src="./scripts/firebaseAPI_TEAM10.js"></script>
 <script src="./scripts/skeleton.js"></script>
 <script src="./scripts/tenantProfile.js"></script>
-
+<script src="./scripts/review.js"></script>
 </body>
 
 </html>

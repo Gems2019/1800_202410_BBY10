@@ -1,77 +1,52 @@
-var currentUser; // Points to the document of the user who is logged in
+document.addEventListener('DOMContentLoaded', function() {
+    // Assuming Firebase has been initialized elsewhere in your application
+    const db = firebase.firestore();
 
-function populateUserInfo() {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            // Go to the correct user document by referencing the user UID in the userProfile collection
-            currentUser = db.collection("userProfile").doc(user.uid);
-            currentUser.get().then(userDoc => {
-                if (userDoc.exists) {
-                    // Get the data fields of the user
-                    let userName = userDoc.data().Name;
-                    let userAge = userDoc.data().Age;
-                    let userEmail = userDoc.data().Email;
-                    let userNumber = userDoc.data().Number;
-                    let userResidence = userDoc.data().Residence;
-                    let userTitle = userDoc.data().Title;
-                    // Newly added fields
-                    let userImmigrationStatus = userDoc.data().ImmigrationStatus || '';
-                    
-                    // Populate the form fields if not null
-                    document.getElementById("nameInput").value = userName || '';
-                    document.getElementById("dobInput").value = userAge || '';
-                    document.getElementById("emailInput").value = userEmail || '';
-                    document.getElementById("numberInput").value = userNumber || '';
-                    document.getElementById("ResidenceInput").value = userResidence || '';
-                    document.getElementById("titleInput").value = userTitle || '';
-                    // Populate the new fields
-                    document.getElementById("immigrationStatusInput").value = userImmigrationStatus;
-                    // Set the appropriate radio button for Criminal History
-
-                }
-            });
+            const userID = user.uid;
+            displayUserInfo(userID);
         } else {
             console.log("No user is signed in.");
         }
     });
-}
 
+    function displayUserInfo(userID) {
+        const userRef = db.collection('users').doc(userID);
 
-function editUserInfo() {
-    document.getElementById('personalInfoFields').disabled = false;
-}
+        userRef.get().then((doc) => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profileContainer = document.getElementById('profileContainer');
+                profileContainer.innerHTML = ''; // Clear existing content
+                profileContainer.innerHTML += `<p>Name: ${userData.name}</p>`;
+                profileContainer.innerHTML += `<p>Email: ${userData.email}</p>`;
+                profileContainer.innerHTML += `<p>Role: ${userData.role}</p>`;
+                // profileContainer.innerHTML += `<p>Landlord: ${userData.landlord ? 'Yes' : 'No'}</p>`;
+                // profileContainer.innerHTML += `<p>Tenant: ${userData.tenant ? 'Yes' : 'No'}</p>`;
+                // If there are more fields, continue appending them in a similar manner
 
-function saveUserInfo() {
-    let userName = document.getElementById('nameInput').value;
-    let userAge = document.getElementById('dobInput').value;
-    let userEmail = document.getElementById('emailInput').value;
-    let userNumber = document.getElementById('numberInput').value;
-    let userResidence = document.getElementById('ResidenceInput').value;
-    let userTitle = document.getElementById('titleInput').value;
-    let userImmigrationStatus = document.getElementById('immigrationStatusInput').value;
+                // Now, handle the reviews
+                if (userData.reviews && userData.reviews.length > 0) {
+                    userData.reviews.forEach(review => {
+                        displayReview(review);
+                    });
+                }
+            } else {
+                console.log("No such user!");
+            }
+        }).catch((error) => {
+            console.log("Error getting user data:", error);
+        });
+    }
 
-
-    currentUser.set({
-        Name: userName,
-        Age: userAge,
-        Email: userEmail,
-        Number: userNumber,
-        Residence: userResidence,
-        Title: userTitle,
-        ImmigrationStatus: userImmigrationStatus, // New field
-
-    }, { merge: true }).then(() => {
-        console.log("User Profile successfully written or updated!");
-        document.getElementById('personalInfoFields').disabled = true;
-
-        // Redirect to listTenants.html or any other page you want
-        window.location.href = 'tenantProfile2.html'; // Adjust the redirect as necessary
-    }).catch(error => {
-        console.error("Error writing or updating user profile: ", error);
-    });
-}
-
-
-
-// Call the function to populate user info on page load
-populateUserInfo();
+    function displayReview(review) {
+        const template = document.getElementById('reviewCardTemplate').content.cloneNode(true);
+        template.querySelector('.level').textContent = `Communication Level: ${review.level}`;
+        template.querySelector('.season').textContent = `Season: ${review.season}`;
+        template.querySelector('.description').textContent = `Description: ${review.description}`;
+        template.querySelector('.time').textContent = `Date: ${review.timestamp}`;
+        // Assuming you have a container for reviews in your HTML. If not, add one or append directly to profileContainer or another suitable element.
+        document.getElementById('profileContainer').appendChild(template);
+    }
+});
