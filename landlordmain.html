@@ -123,31 +123,24 @@
     <div id="content" class="px-4 pt-5 my-5 text-center border-bottom rounded-3 border shadow-lg">
 
 
-
-        <div id="mainContainer">
-
+        <!-- Main Container for Cards -->
+        <div id="mainContainer" class="container">
+            <!-- 'row' div will be dynamically filled with 'col' wrapped cards -->
         </div>
 
+        <!-- Card Template -->
         <template id="userTemplate">
-            <div class="card py-2 mx-2 user-container" style="width: 18rem">
-                <!-- Placeholder for user image, if needed. Remove if not required -->
-                <img class="card-image card-img-top" src="/images/drink1.jpg" alt="Tenant Image" />
-
-                <div class="card-body">
-                    <!-- Title containing the tenant's name -->
-                    <h5 class="card-title user-name"></h5>
-
-                    <!-- Text describing the action -->
-                    <p class="card-text">
-                        Wants to rent your property.
-                    </p>
-
-                    <!-- Accept button -->
-                    <button class="btn btn-primary btn-sm px-2 me-sm-2 accept" onclick="changeIsAvailable()">Accept</button>
-                    
-
-                    <!-- Delete button -->
-                    <button class="btn btn-primary cta-button btn-sm px-4 me-sm-2 delete-btn">Deny</button>
+            <div class="col-md-4"> <!-- Adjust 'col-md-4' as needed for different sizes -->
+                <div class="card py-2 mx-2 user-container" style="width: 100%;"> <!-- Adjusted width to 100% -->
+                    <img class="card-image card-img-top" src="/images/drink1.jpg" alt="Tenant Image" />
+                    <div class="card-body">
+                        <h5 class="card-title user-name"></h5>
+                        <p class="card-text">
+                            Wants to rent your property.
+                        </p>
+                        <button class="btn btn-primary btn-sm px-2 me-sm-2 accept">Accept</button>
+                        <button class="btn btn-primary cta-button btn-sm px-4 me-sm-2 delete-btn">Deny</button>
+                    </div>
                 </div>
             </div>
         </template>

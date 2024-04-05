@@ -1,27 +1,3 @@
-// function displayRentalInfo() {
-//     let params = new URL(window.location.href); //get URL of search bar
-//     let ID = params.searchParams.get("docID"); //get value for key "id"
-//     console.log(ID);
-
-//     // doublecheck: is your collection called "Reviews" or "reviews"?
-//     db.collection("rentals")
-//         .doc(ID)
-//         .get()
-//         .then(doc => {
-//             thisRental = doc.data();
-//             rentalCode = thisRental.code;
-//             rentalName = doc.data().name;
-
-//             // only populate title, and image
-//             document.getElementById("rentalName").innerHTML = rentalName;
-//             let imgEvent = document.querySelector(".unit-img");
-//             imgEvent.src = "../images/" + rentalCode + ".jpg";
-//         });
-// }
-// displayRentalInfo();
-
-
-
 function displayRentalInfo() {
     let params = new URL(window.location.href); //get URL of search bar
     let ID = params.searchParams.get("docID"); //get value for key "id"
