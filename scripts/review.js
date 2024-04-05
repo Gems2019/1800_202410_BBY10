@@ -3,24 +3,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Assuming there's a form with id 'reviewForm' and an input for the review message with id 'reviewMessage'
   const form = document.getElementById('reviewForm');
-  let tenantTitle = document.getElementById("title").value;
   let tenantLevel = document.getElementById("level").value;
   let tenantSeason = document.getElementById("season").value;
   let tenantDescription = document.getElementById("description").value;
-
-  // Get the star rating
-  // Get all the elements with the class "star" and store them in the 'stars' variable
-  const stars = document.querySelectorAll('.star');
-  // Initialize a variable 'hikeRating' to keep track of the rating count
-  let tenantRating = 0;
-  // Iterate through each element in the 'stars' NodeList using the forEach method
-  stars.forEach((star) => {
-      // Check if the text content of the current 'star' element is equal to the string 'star'
-      if (star.textContent === 'star') {
-          // If the condition is met, increment the 'hikeRating' by 1
-          tenantRating++;
-      }
-  });
 
   // Function to generate a unique ID for the review
   function generateUniqueID() {
@@ -48,11 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Now, construct the review data
         const reviewData = {
           id: generateUniqueID(), // Implement this function based on your ID generation logic
-          title: tenantTitle,
           level: tenantLevel,
           season: tenantSeason,
           description: tenantDescription,
-          rating: tenantRating, // Include the rating in the review
           timestamp: new Date().toLocaleDateString("en-US"), // Format the date as you need
           owner: landlordID,
         };
