@@ -24,112 +24,144 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+    <style>
+        body,
+        html {
+            font-family: 'Roboto', sans-serif;
+            /* Ensures Roboto is used */
+        }
+
+        .navbar,
+        #footerPlaceholder {
+            background-color: #007bff;
+            /* A nice shade of blue */
+            color: #ffffff;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff !important;
+            /* Ensures text is white */
+        }
+
+        .container {
+            background-color: #ffffff;
+            /* Keeps background white for contrast */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            /* Adds a subtle shadow for depth */
+        }
+
+        .review-section {
+            padding: 2rem 0;
+            /* Adds vertical padding for spacing */
+        }
+
+        .card {
+            border: none;
+            /* Removes border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Adds shadow to cards for depth */
+        }
+
+        .card-body {
+            padding: 1rem;
+            /* Adjusts padding inside cards */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            /* Use Bootstrap primary color */
+            border: none;
+            /* Removes border */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            /* Darker shade on hover */
+        }
+
+        h2 {
+            color: #343a40;
+            /* Dark gray for headings for better contrast */
+            margin-bottom: 1.5rem;
+            /* Adds more space below headings */
+        }
+
+        /* Customizing the review cards specifically */
+        .card-img-top {
+            border-radius: 0.25rem 0.25rem 0 0;
+            /* Rounds the top corners of the image */
+            height: 200px;
+            /* Sets a fixed height for uniformity */
+            object-fit: cover;
+            /* Ensures the images cover the area */
+        }
+
+        .review-section .container>h2 {
+            border-bottom: 2px solid #007bff;
+            /* Adds a blue bottom border to the section heading */
+            display: inline-block;
+            /* Allows the border to fit the text width */
+        }
+    </style>
+
 </head>
 
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #f8f9fa; /* Soft light background */
-    }
 
-    .container, .container-fluid {
-        padding-top: 20px;
-        background-color: #ffffff; /* Bright background for content */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        border-radius: 8px; /* Rounded corners */
-        margin-bottom: 20px; /* Space at the bottom */
-    }
-
-    h2 {
-        color: #495057; /* Darker font for titles */
-    }
-
-    .card {
-        background-color: #e9ecef; /* Light grey background for cards */
-        border: none; /* Remove border */
-        transition: transform 0.2s; /* Smooth transition for hover effect */
-    }
-
-    .card:hover {
-        transform: scale(1.05); /* Slightly scale up cards on hover */
-    }
-
-    .card-img-top {
-        border-top-left-radius: calc(.25rem - 1px); /* Round top corners */
-        border-top-right-radius: calc(.25rem - 1px); /* Maintain consistent rounding with Bootstrap cards */
-    }
-
-    .card-body {
-        text-align: left; /* Align text to the left */
-        padding: 1rem; /* Standard padding */
-    }
-
-    .card .level, .card .season, .card .description, .card .time {
-        color: #343a40; /* Dark text for readability */
-        margin-bottom: 0.5rem; /* Spacing between text */
-    }
-
-    /* Review Section adjustments */
-    .review-section .container {
-        padding-top: 0; /* Remove padding for tighter grouping */
-    }
-
-    .review-section h2 {
-        margin-top: 20px; /* Space above review section title */
-    }
-</style>
 </head>
+
 <body>
+    <nav id="navbarPlaceholder"></nav>
+    <br>
+    <br>
+    <br>
 
-<!-- Displaying personal information -->
-<div class="container mt-5">
-    <h2 class="text-center mb-4"><b>My Profile Page</b></h2>
-    <div id="profileContainer"></div>
-</div>
+    <!-- Displaying personal information -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4"><b>My Profile Page</b></h2>
+        <div id="profileContainer"></div>
+    </div>
 
-<!-- Review Section -->
-<div class="review-section">
-    <div class="container">
-        <h2 class="text-center">Reviews from other landlords</h2>
-        <div class="d-flex justify-content-center mt-2">
-            <div class="text-center">
-                <a href="../landlordreview.html" class="btn btn-primary" style="padding: 5px;">Leave a Review!</a>
+    <!-- Review Section -->
+    <div class="review-section">
+        <div class="container">
+            <h2 class="text-center">Reviews from other landlords</h2>
+            <div class="d-flex justify-content-center mt-2">
+                <div class="text-center">
+                    <a href="../landlordreview.html" class="btn btn-primary" style="padding: 5px;">Leave a Review!</a>
+                </div>
+            </div>
+
+            <!-- Displaying all reviews -->
+            <div id="reviewCardGroup" class="card-container mt-3">
+                <template id="reviewCardTemplate">
+                    <div class="card">
+                        <img class="card-img-top">
+                        <div class="card-body">
+                            <p class="level">Communication Level: placeholder</p>
+                            <p class="season">Refer Tenant in the Future: placeholder</p>
+                            <p class="description">Description: placeholder</p>
+                            <p class="time">placeholder</p>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
-
-        <!-- Displaying all reviews -->
-        <div id="reviewCardGroup" class="card-container mt-3">
-            <template id="reviewCardTemplate">
-                <div class="card">
-                    <img class="card-img-top">
-                    <div class="card-body">
-                        <p class="level">Communication Level: placeholder</p>
-                        <p class="season">Refer Tenant in the Future: placeholder</p>
-                        <p class="description">Description: placeholder</p>
-                        <p class="time">placeholder</p>
-                    </div>
-                </div>
-            </template>
-        </div>
     </div>
-</div>
 
-<!-- Footer and scripts here -->
-
+    <!-- Footer and scripts here -->
 
 
-<!-- our own footer goes here-->
 
-- <nav id="footerPlaceholder"></nav>
+    <!-- our own footer goes here-->
 
-<!-- Bootstrap JS bundle with Popper -->
-<script src="./scripts/firebaseAPI_TEAM10.js"></script>
-<script src="./scripts/skeleton.js"></script>
-<script src="./scripts/tenantProfile.js"></script>
-<script src="./scripts/review.js"></script>
+    - <nav id="footerPlaceholder"></nav>
+
+    <!-- Bootstrap JS bundle with Popper -->
+    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/tenantProfile.js"></script>
+    <script src="./scripts/review.js"></script>
 </body>
 
 </html>
