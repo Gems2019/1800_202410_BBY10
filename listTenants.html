@@ -18,7 +18,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -27,7 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
@@ -37,6 +37,19 @@
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
+    <style>
+        #mainContainer {
+          display: flex;
+          flex-wrap: wrap; /* Allows cards to wrap to the next line if the container width is exceeded */
+          justify-content: start; /* Aligns items to the start of the container */
+          gap: 20px; /* Space between the cards */
+        }
+      
+        .card {
+          flex: 0 1 18rem; /* Flex-grow, flex-shrink, and flex-basis values */
+          /* The card will have a base width of 18rem but can shrink if necessary. */
+        }
+      </style>
 </head>
 
 <body>
@@ -50,7 +63,7 @@
     <br>
     <br>
     <br>
-<div class="container-fluid bg-light text-dark p-5">
+    <div class="container-fluid bg-light text-dark p-5">
         <div class="container bg-light pt-3 text-center"> <!-- Added 'pt-3' class for padding on top -->
             <h1 class="display-4"><b>Tenant Lists</h1>
             <hr>
@@ -62,25 +75,26 @@
     </div>
 
     <template id="userTemplate">
-        <div class="card py-2 mx-2 user-container" style="width: 18rem">
+        <div class="card py-2 mx-2 tenantCard user-container" style="width: 18rem">
             <!-- Placeholder for user image, if needed. Remove if not required -->
             <img class="card-image card-img-top" src="/images/drink1.jpg" alt="Tenant Image" />
 
             <div class="card-body">
                 <!-- Title containing the tenant's name -->
-                <h5 class="card-title user-name"></h5>
+                <h5 class="card-title user-name">Tenant Name</h5>
 
                 <!-- Accept button -->
-                <button href="tenantProfile2.html" class="btn btn-primary btn-sm px-2 me-sm-2 ">Profile</button>
-                
+                <!-- <button class="view-link btn btn-primary btn-sm px-2 me-sm-2 ">More Information</button> -->
+                <button class="btn btn-primary btn-sm px-2 me-sm-2 view-tenant">More Information</button>
+
 
                 <!-- Delete button -->
                 <button class="btn btn-primary cta-button btn-sm px-2 me-sm-2">As you wish</button>
             </div>
         </div>
     </template>
-    
-    
+
+
 
     <nav id="footerPlaceholder"></nav>
 

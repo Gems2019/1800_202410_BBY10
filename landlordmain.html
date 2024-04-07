@@ -44,8 +44,28 @@
         }
     </style>
 
+    <style>
+        .uppercase {
+            text-transform: uppercase;
+        }
+    </style>
+    <style>
+        #mainContainer {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows cards to wrap to the next line if the container width is exceeded */
+            justify-content: start;
+            /* Aligns items to the start of the container */
+            gap: 20px;
+            /* Space between the cards */
+        }
 
-
+        .card {
+            flex: 0 1 18rem;
+            /* Flex-grow, flex-shrink, and flex-basis values */
+            /* The card will have a base width of 18rem but can shrink if necessary. */
+        }
+    </style>
 
 </head>
 
@@ -100,6 +120,7 @@
 
     <div class="px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4" src="images/LogoI2.png" alt="" width="200" height="200">
+        <h1 class="display-4 fw-bold">Hello, <span class="uppercase" id="name-goes-here"></span></h1>
         <h1 class="display-5 fw-bold">Make self-managing your rentals simple</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Join the many landlords who rely on RentalSystem to create
@@ -130,7 +151,7 @@
 
         <!-- Card Template -->
         <template id="userTemplate">
-            <div class="col-md-4"> <!-- Adjust 'col-md-4' as needed for different sizes -->
+            <div class="col-md-4">
                 <div class="card py-2 mx-2 user-container" style="width: 100%;"> <!-- Adjusted width to 100% -->
                     <img class="card-image card-img-top" src="/images/drink1.jpg" alt="Tenant Image" />
                     <div class="card-body">
@@ -141,18 +162,9 @@
                         <button class="btn btn-primary btn-sm px-2 me-sm-2 accept">Accept</button>
                         <button class="btn btn-primary cta-button btn-sm px-4 me-sm-2 delete-btn">Deny</button>
                     </div>
-                </div>
             </div>
-        </template>
-
-
-        <!-- <template id="userTemplate">
-            <div class="user-container">
-                <h1>Tenant <p class="user-name"></p> wants to rent your property</h1>
-                <button id="accept" class="btn btn-primary cta-button btn-lg px-4 me-sm-3" onclick="changeIsAvailable()">Accept</button>
-                <button class="btn btn-primary cta-button btn-lg px-4 me-sm-3 delete-btn">Delete the message</button>
-            </div>
-        </template> -->
+    </div>
+    </template>
 
     </div>
     </div>
@@ -193,7 +205,7 @@
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/eachProperty.js"></script> -->
+    <script src="./scripts/main.js"></script>
     <script src="./scripts/landlordmain.js"></script>
 </body>
 
