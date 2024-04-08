@@ -44,12 +44,44 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/main.html"><img src="../images/LogoI2.png" height="36">
+                Rental Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="main.html">Home</a>
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <nav id="navbarPlaceholder"></nav>
+                    <a class="nav-link" href="../about.html">About</a>
+                
+
+                    <a class="nav-link" href="createProperty.html">Post a Property</a>
+                    <a class="nav-link" href="listTenants.html">Tenant List</a>
+                    <!--  -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Support
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Legal advice</a></li>
+                            <li><a class="dropdown-item" href="#">Chat bot</a></li>
+                            <li><a class="dropdown-item" href="#">Customer service</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                        </ul>
+                    </li>
+                    <a href="../welcome.html" class="btn btn-primary cta-button">Log out</a>
+                </div>
+            </div>
+    </nav>
 
     <!-- the body of your page goes here -->
     <!-- stuff -->

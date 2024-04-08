@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const template = document.getElementById('reviewCardTemplate').content.cloneNode(true);
 
                 template.querySelector('.landlordName').textContent = `Name of landlord: ${userName}`;
-                template.querySelector('.season').textContent = `Season: ${review.season}`;
+                // template.querySelector('.season').textContent = `Season: ${review.season}`;
+                template.querySelector('.season').textContent = `Would you refer the Tenant in the future?: ${review.season}`;
                 template.querySelector('.description').textContent = `Description: ${review.description}`;
                 template.querySelector('.time').textContent = `Date: ${review.timestamp}`;
 
