@@ -1,11 +1,48 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Assuming there's a form with id 'reviewForm' and an input for the review message with id 'reviewMessage'
   const form = document.getElementById('reviewForm');
-  let tenantLevel = document.getElementById("level").value;
-  let tenantSeason = document.getElementById("season").value;
-  let tenantDescription = document.getElementById("description").value;
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting in the traditional way
+
+    // Retrieve values within the event to ensure they are current
+    let tenantLevel = document.getElementById("level").value;
+    let tenantSeason = document.getElementById("season").value;
+    let tenantDescription = document.getElementById("description").value;
+
+    // Rest of the code remains the same...
+    const urlParams = new URLSearchParams(window.location.search);
+    const tenantID = urlParams.get('tenantID'); // Make sure this matches your URL parameter
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        const landlordID = user.uid;
+        const reviewData = {
+          id: generateUniqueID(),
+          level: tenantLevel,
+          season: tenantSeason,
+          description: tenantDescription,
+          timestamp: new Date().toLocaleDateString("en-US"),
+          owner: landlordID,
+        };
+
+        const db = firebase.firestore();
+        const tenantRef = db.collection('users').doc(tenantID);
+
+        tenantRef.update({
+          reviews: firebase.firestore.FieldValue.arrayUnion(reviewData)
+        }).then(() => {
+          console.log('Review added successfully.');
+          window.location.href = `tenantProfile.html?tenantID=${tenantID}`;
+        }).catch(error => {
+          console.error("Error adding review: ", error);
+        });
+
+      } else {
+        console.error("Landlord not signed in.");
+        window.location.href = 'login.html';
+      }
+    });
+  });
 
   // Function to generate a unique ID for the review
   function generateUniqueID() {
@@ -16,54 +53,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Combine them to form a unique ID
     return `${timestamp}-${randomString}`;
   }
-
-  // Function to handle form submission
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting in the traditional way
-
-    // Retrieve tenantID from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const tenantID = urlParams.get('userID'); // Ensure 'userID' is the correct query parameter name //URL LINK!
-
-    // Retrieve landlordID from the current user session
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        const landlordID = user.uid;
-
-        // Now, construct the review data
-        const reviewData = {
-          id: generateUniqueID(), // Implement this function based on your ID generation logic
-          level: tenantLevel,
-          season: tenantSeason,
-          description: tenantDescription,
-          timestamp: new Date().toLocaleDateString("en-US"), // Format the date as you need
-          owner: landlordID,
-        };
-        // Store the review data in the tenant's document under 'reviews'
-        const db = firebase.firestore(); // Assuming firestore is already initialized
-        const tenantRef = db.collection('users').doc(tenantID);
-
-        // Using Firestore's arrayUnion to add a review without overwriting existing ones
-        tenantRef.update({
-          reviews: firebase.firestore.FieldValue.arrayUnion(reviewData)
-        }).then(() => {
-          console.log('Review added successfully.');
-          // Here, redirect to the tenant's profile page
-          // Assuming the tenant's profile page URL looks like 'tenantProfile.html?userID=<TenantID>'
-          // window.location.href = `tenantProfile.html?userID=${tenantID}`; //URL LINK!
-          window.location.href = "thankyou2.html"
-        }).catch(error => {
-          console.error("Error adding review: ", error);
-        });
-
-      } else {
-        console.error("Landlord not signed in.");
-        // Redirect to login or handle accordingly
-        window.location.href = 'login.html';
-      }
-    });
-  });
-
-
-
 });

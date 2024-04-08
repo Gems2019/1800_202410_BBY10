@@ -2,14 +2,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Assuming Firebase has been initialized elsewhere in your application
     const db = firebase.firestore();
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            const userID = user.uid;
-            displayUserInfo(userID);
-        } else {
-            console.log("No user is signed in.");
-        }
-    });
+// Assuming the URL is something like "http://yourwebsite.com/?userID=abc123"
+const params = new URLSearchParams(window.location.search);
+const userID = params.get('tenantID'); // Extracts the tenantID from the URL
+
+if (userID) {
+    displayUserInfo(userID);
+    setupLeaveReviewButton(userID);
+} else {
+    console.log("No userID found in the URL.");
+}
+function setupLeaveReviewButton(tenantID) {
+    // Select the leaveReview button by its class
+    const leaveReviewButton = document.querySelector('.leaveReview');
+    if (leaveReviewButton) {
+        leaveReviewButton.addEventListener('click', function() {
+            window.location.href = `/review.html?tenantID=${tenantID}`;
+        });
+    }
+}
 
     function displayUserInfo(userID) {
         const userRef = db.collection('users').doc(userID);
