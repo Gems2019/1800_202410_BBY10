@@ -54,7 +54,8 @@ function setupLeaveReviewButton(tenantID) {
     function displayReview(review) {
         const template = document.getElementById('reviewCardTemplate').content.cloneNode(true);
         template.querySelector('.level').textContent = `Communication Level: ${review.level}`;
-        template.querySelector('.season').textContent = `Season: ${review.season}`;
+        // template.querySelector('.season').textContent = `Season: ${review.season}`;
+        template.querySelector('.season').textContent = `Would you refer the Tenant in the future?: ${review.season}`;
         template.querySelector('.description').textContent = `Description: ${review.description}`;
         template.querySelector('.time').textContent = `Date: ${review.timestamp}`;
         // Assuming you have a container for reviews in your HTML. If not, add one or append directly to profileContainer or another suitable element.
