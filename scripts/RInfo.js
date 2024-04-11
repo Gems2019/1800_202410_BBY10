@@ -148,8 +148,8 @@ function displayCardsDynamically(collection) {
 
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-rdetails').innerHTML = details;
-                newcard.querySelector('.card-text').innerHTML = area;
-                newcard.querySelector('.card-region').innerHTML = region;
+                newcard.querySelector('.card-text').innerHTML = "City " + area;
+                newcard.querySelector('.card-region').innerHTML = "Province " + region;
                 newcard.querySelector('.card-rcost').innerHTML = "Monthly Rent " + "$" + cost;
                 newcard.querySelector('.card-image').src = `./images/${rentalCode}.jpg`;
                 newcard.querySelector('a').href = "eachProperty.html?docID=" + docID;

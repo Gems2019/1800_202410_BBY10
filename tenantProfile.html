@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Rental Management System</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Library CSS CDN go here -->
@@ -24,113 +24,183 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+    <style>
+        body,
+        html {
+            font-family: 'Roboto', sans-serif;
+            /* Ensures Roboto is used */
+        }
+
+        .navbar,
+        #footerPlaceholder {
+            background-color: #007bff;
+            /* A nice shade of blue */
+            color: #ffffff;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff !important;
+            /* Ensures text is white */
+        }
+
+        .container {
+            background-color: #ffffff;
+            /* Keeps background white for contrast */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            /* Adds a subtle shadow for depth */
+        }
+
+        .review-section {
+            padding: 2rem 0;
+            /* Adds vertical padding for spacing */
+        }
+
+        .card {
+            border: none;
+            /* Removes border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Adds shadow to cards for depth */
+        }
+
+        .card-body {
+            padding: 1rem;
+            /* Adjusts padding inside cards */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            /* Use Bootstrap primary color */
+            border: none;
+            /* Removes border */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            /* Darker shade on hover */
+        }
+
+        h2 {
+            color: #343a40;
+            /* Dark gray for headings for better contrast */
+            margin-bottom: 1.5rem;
+            /* Adds more space below headings */
+        }
+
+        /* Customizing the review cards specifically */
+        .card-img-top {
+            border-radius: 0.25rem 0.25rem 0 0;
+            /* Rounds the top corners of the image */
+            height: 200px;
+            /* Sets a fixed height for uniformity */
+            object-fit: cover;
+            /* Ensures the images cover the area */
+        }
+
+        .review-section .container>h2 {
+            border-bottom: 2px solid #007bff;
+            /* Adds a blue bottom border to the section heading */
+            display: inline-block;
+            /* Allows the border to fit the text width */
+        }
+    </style>
+
 </head>
 
-<style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: 'Roboto', sans-serif;
-        background-color: lightgrey;
-    }
 
-
-    .container {
-        text-align: center;
-        /* Centers the content within the container */
-    }
-
-    .position-relative img {
-        max-width: 650px;
-        /* Adjusts the maximum width of the image */
-        max-height: 650px;
-        /* Adjusts the maximum height of the image */
-        margin: auto;
-        /* Centers the image horizontally */
-    }
-
-    .position-relative {
-        display: flex;
-        justify-content: center;
-        /* Centers the position-relative div horizontally */
-        align-items: center;
-        /* Centers the position-relative div vertically */
-        flex-direction: column;
-        /* Stacks the image and the button vertically */
-        padding-top: 30px;
-    }
-
-    #footerPlaceholder {
-        margin-top: auto;
-        /* Pushes the navbar to the bottom */
-        width: 100%;
-        /* Ensures the navbar spans the full width of the viewport */
-    }
-</style>
+</head>
 
 <body>
-    <nav id="navbarPlaceholder"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/main.html"><img src="../images/LogoI2.png" height="36">
+                Rental Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="main.html">Home</a>
 
-    <div class="container">
-        <h1>Add/Update your tenant profile information!</h1>
-        <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label>Age</label>
-                    <input type="date" id="dobInput" class="form-control" placeholder="Enter your Date of Birth">
-                </div>
-
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" id="emailInput" class="form-control" placeholder="Enter your Email">
-                </div>
-                <div class="form-group">
-                    <label>Number</label>
-                    <input type="text" id="numberInput" class="form-control" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label>Residence</label>
-                    <input type="text" id="ResidenceInput" class="form-control" placeholder="Enter your residence">
-                </div>
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" id="titleInput" class="form-control" placeholder="Enter your Employer/Job Title">
-                </div>
-                <div class="form-group">
-                    <label for="immigrationStatusInput">Immigration Status?</label>
-                    <input type="text" id="immigrationStatusInput" class="form-control" placeholder="Enter your Immigration Status">
-                </div>
+                    <a class="nav-link" href="../about.html">About</a>
                 
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Submit</button>
+
+                    <a class="nav-link" href="createProperty.html">Post a Property</a>
+                    <a class="nav-link" href="listTenants.html">Tenant List</a>
+                    <!--  -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Support
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Legal advice</a></li>
+                            <li><a class="dropdown-item" href="#">Chat bot</a></li>
+                            <li><a class="dropdown-item" href="#">Customer service</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                        </ul>
+                    </li>
+                    <a href="../index.html" class="btn btn-primary cta-button">Log out</a>
+                </div>
             </div>
-        </form>
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <!-- Displaying personal information -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4"><b>My Profile Page</b></h2>
+        <div id="profileContainer"></div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-large px-2 me-sm-3 leaveReview">Leave a Review!</button>
+        </div>
     </div>
-</body>
-<!-- Footer and scripts here -->
+
+    <!-- Review Section -->
+    <div class="review-section">
+        <div class="container">
+            <h2 class="text-center">Reviews from other landlords</h2>
+            <div class="d-flex justify-content-center mt-2">
+            </div>
+
+            <!-- Displaying all reviews -->
+            <div id="reviewCardGroup" class="card-container mt-3">
+                <template id="reviewCardTemplate">
+                    <div class="card">
+                        <!-- <img class="card-img-top"> -->
+                        <div class="card-body">
+
+                            <p class="landlordName">Name of landlord : placeholder</p>
+                            <p class="level">Communication Level: placeholder</p>
+                            <p class="season">Refer Tenant in the Future: placeholder</p>
+                            <p class="description">Description: placeholder</p>
+                            <p class="time">placeholder</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer and scripts here -->
 
 
 
-<!-- our own footer goes here-->
+    <!-- our own footer goes here-->
 
-<!--- <nav id="footerPlaceholder"></nav> -->
+    - <nav id="footerPlaceholder"></nav>
 
-<!-- Bootstrap JS bundle with Popper -->
-<script src="./scripts/firebaseAPI_TEAM10.js"></script>
-<script src="./scripts/skeleton.js"></script>
-<script src="./scripts/tenantProfile.js"></script>
-<script src="./scripts/review.js"></script>
-
+    <!-- Bootstrap JS bundle with Popper -->
+    <script src="./scripts/firebaseAPI_TEAM10.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/tenantProfile.js"></script>
+    <script src="./scripts/review.js"></script>
 </body>
 
 </html>

@@ -1,77 +1,70 @@
-var currentUser; // Points to the document of the user who is logged in
+document.addEventListener('DOMContentLoaded', function() {
+    const db = firebase.firestore();
 
-function populateUserInfo() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            // Go to the correct user document by referencing the user UID in the userProfile collection
-            currentUser = db.collection("userProfile").doc(user.uid);
-            currentUser.get().then(userDoc => {
-                if (userDoc.exists) {
-                    // Get the data fields of the user
-                    let userName = userDoc.data().Name;
-                    let userAge = userDoc.data().Age;
-                    let userEmail = userDoc.data().Email;
-                    let userNumber = userDoc.data().Number;
-                    let userResidence = userDoc.data().Residence;
-                    let userTitle = userDoc.data().Title;
-                    // Newly added fields
-                    let userImmigrationStatus = userDoc.data().ImmigrationStatus || '';
-                    
-                    // Populate the form fields if not null
-                    document.getElementById("nameInput").value = userName || '';
-                    document.getElementById("dobInput").value = userAge || '';
-                    document.getElementById("emailInput").value = userEmail || '';
-                    document.getElementById("numberInput").value = userNumber || '';
-                    document.getElementById("ResidenceInput").value = userResidence || '';
-                    document.getElementById("titleInput").value = userTitle || '';
-                    // Populate the new fields
-                    document.getElementById("immigrationStatusInput").value = userImmigrationStatus;
-                    // Set the appropriate radio button for Criminal History
+    const params = new URLSearchParams(window.location.search);
+    const userID = params.get('tenantID');
 
-                }
+    if (userID) {
+        displayUserInfo(userID);
+        setupLeaveReviewButton(userID);
+    } else {
+        console.log("No userID found in the URL.");
+    }
+
+    function setupLeaveReviewButton(tenantID) {
+        const leaveReviewButton = document.querySelector('.leaveReview');
+        if (leaveReviewButton) {
+            leaveReviewButton.addEventListener('click', function() {
+                window.location.href = `/review.html?tenantID=${tenantID}`;
             });
-        } else {
-            console.log("No user is signed in.");
         }
-    });
-}
+    }
 
+    function displayUserInfo(userID) {
+        const userRef = db.collection('users').doc(userID);
 
-function editUserInfo() {
-    document.getElementById('personalInfoFields').disabled = false;
-}
+        userRef.get().then((doc) => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const profileContainer = document.getElementById('profileContainer');
+                profileContainer.innerHTML = '';
+                profileContainer.innerHTML += `<p>Name: ${userData.name}</p>`;
+                profileContainer.innerHTML += `<p>Email: ${userData.email}</p>`;
+                profileContainer.innerHTML += `<p>Role: ${userData.role}</p>`;
 
-function saveUserInfo() {
-    let userName = document.getElementById('nameInput').value;
-    let userAge = document.getElementById('dobInput').value;
-    let userEmail = document.getElementById('emailInput').value;
-    let userNumber = document.getElementById('numberInput').value;
-    let userResidence = document.getElementById('ResidenceInput').value;
-    let userTitle = document.getElementById('titleInput').value;
-    let userImmigrationStatus = document.getElementById('immigrationStatusInput').value;
+                if (userData.reviews && userData.reviews.length > 0) {
+                    userData.reviews.forEach(review => {
+                        displayReview(review, db);
+                    });
+                }
+            } else {
+                console.log("No such user!");
+            }
+        }).catch((error) => {
+            console.log("Error getting user data:", error);
+        });
+    }
 
+    function displayReview(review, db) {
+        // Fetch the user's name based on review.owner
+        db.collection('users').doc(review.owner).get().then((doc) => {
+            if (doc.exists) {
+                const userName = doc.data().name; // Assuming the user's name is stored in the 'name' field
+                const template = document.getElementById('reviewCardTemplate').content.cloneNode(true);
 
-    currentUser.set({
-        Name: userName,
-        Age: userAge,
-        Email: userEmail,
-        Number: userNumber,
-        Residence: userResidence,
-        Title: userTitle,
-        ImmigrationStatus: userImmigrationStatus, // New field
+                template.querySelector('.landlordName').textContent = `Name of landlord: ${userName}`;
+                // template.querySelector('.season').textContent = `Season: ${review.season}`;
+                template.querySelector('.season').textContent = `Would you refer the Tenant in the future?: ${review.season}`;
+                template.querySelector('.description').textContent = `Description: ${review.description}`;
+                template.querySelector('.time').textContent = `Date: ${review.timestamp}`;
 
-    }, { merge: true }).then(() => {
-        console.log("User Profile successfully written or updated!");
-        document.getElementById('personalInfoFields').disabled = true;
+                document.getElementById('reviewCardGroup').appendChild(template);
+            } else {
+                console.log(`No user found with ID: ${review.owner}`);
+            }
+        }).catch((error) => {
+            console.error("Error fetching landlord details:", error);
+        });
+    }
+});
 
-        // Redirect to listTenants.html or any other page you want
-        window.location.href = 'tenantProfile2.html'; // Adjust the redirect as necessary
-    }).catch(error => {
-        console.error("Error writing or updating user profile: ", error);
-    });
-}
-
-
-
-// Call the function to populate user info on page load
-populateUserInfo();
