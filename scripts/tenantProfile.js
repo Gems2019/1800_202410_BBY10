@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const db = firebase.firestore();
 
     const params = new URLSearchParams(window.location.search);
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupLeaveReviewButton(tenantID) {
         const leaveReviewButton = document.querySelector('.leaveReview');
         if (leaveReviewButton) {
-            leaveReviewButton.addEventListener('click', function() {
+            leaveReviewButton.addEventListener('click', function () {
                 window.location.href = `/review.html?tenantID=${tenantID}`;
             });
         }
@@ -46,14 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayReview(review, db) {
-        // Fetch the user's name based on review.owner
         db.collection('users').doc(review.owner).get().then((doc) => {
             if (doc.exists) {
-                const userName = doc.data().name; // Assuming the user's name is stored in the 'name' field
+                const userName = doc.data().name;
                 const template = document.getElementById('reviewCardTemplate').content.cloneNode(true);
 
                 template.querySelector('.landlordName').textContent = `Name of landlord: ${userName}`;
-                // template.querySelector('.season').textContent = `Season: ${review.season}`;
                 template.querySelector('.season').textContent = `Would you refer the Tenant in the future?: ${review.season}`;
                 template.querySelector('.description').textContent = `Description: ${review.description}`;
                 template.querySelector('.time').textContent = `Date: ${review.timestamp}`;

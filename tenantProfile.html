@@ -7,10 +7,9 @@
     <title>Rental Management System</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Boostrap Library JS CDN  go here -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
@@ -28,80 +27,72 @@
         body,
         html {
             font-family: 'Roboto', sans-serif;
-            /* Ensures Roboto is used */
+
         }
 
         .navbar,
         #footerPlaceholder {
             background-color: #007bff;
-            /* A nice shade of blue */
             color: #ffffff;
         }
 
         .navbar-brand,
         .nav-link {
             color: #ffffff !important;
-            /* Ensures text is white */
+
         }
 
         .container {
             background-color: #ffffff;
-            /* Keeps background white for contrast */
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            /* Adds a subtle shadow for depth */
+
         }
 
         .review-section {
             padding: 2rem 0;
-            /* Adds vertical padding for spacing */
+
         }
 
         .card {
             border: none;
-            /* Removes border */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* Adds shadow to cards for depth */
+
         }
 
         .card-body {
             padding: 1rem;
-            /* Adjusts padding inside cards */
+
         }
 
         .btn-primary {
             background-color: #007bff;
-            /* Use Bootstrap primary color */
             border: none;
-            /* Removes border */
+
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
-            /* Darker shade on hover */
+
         }
 
         h2 {
             color: #343a40;
-            /* Dark gray for headings for better contrast */
             margin-bottom: 1.5rem;
-            /* Adds more space below headings */
+
         }
 
-        /* Customizing the review cards specifically */
+
         .card-img-top {
             border-radius: 0.25rem 0.25rem 0 0;
-            /* Rounds the top corners of the image */
             height: 200px;
-            /* Sets a fixed height for uniformity */
             object-fit: cover;
-            /* Ensures the images cover the area */
+
         }
 
         .review-section .container>h2 {
             border-bottom: 2px solid #007bff;
-            /* Adds a blue bottom border to the section heading */
             display: inline-block;
-            /* Allows the border to fit the text width */
+
         }
     </style>
 
@@ -124,7 +115,7 @@
                     <a class="nav-link" href="main.html">Home</a>
 
                     <a class="nav-link" href="../about.html">About</a>
-                
+
 
                     <a class="nav-link" href="createProperty.html">Post a Property</a>
                     <a class="nav-link" href="listTenants.html">Tenant List</a>

@@ -1,127 +1,111 @@
-/* Overall body background and font */
 body {
-    background-color: #fff5e6; /* Light warm background */
-    color: #333; /* Dark text for contrast */
+    background-color: #fff5e6;
+    color: #333;
     font-family: 'Roboto', sans-serif;
-    margin: 0; /* Remove default margin */
+    margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
 }
 
 /* Header styling */
 header {
-    background-color: #0D6EFD; /* Blue color for header background */
+    background-color: #0D6EFD;
     width: 100%;
     margin: 0;
-    padding: 20px 0; /* Adjust the vertical padding */
-    box-sizing: border-box; /* Include padding and border in the element's width */
+    padding: 20px 0;
+    box-sizing: border-box;
     padding-top: 200px;
 }
 
-/* Styling for the Available Rentals section title */
 .available-rentals-header h2 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #ffffff; /* White color for text */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-    margin-bottom: 2rem; /* Add space below the header */
-    text-align: center; /* Center align the title */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-/* Card styling for the Available Rentals and Reviews sections */
 .card {
-    background-color: #ffeedd; /* Slightly darker warm tone for card background */
-    border: none; /* Remove default border */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    background-color: #ffeedd;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Card title styling */
 .card-title {
-    color: #555; /* Darker text for titles for readability */
-    text-align: center; /* Center the title */
+    color: #555;
+    text-align: center;
 }
 
-/* Styling for secondary buttons */
 .btn-outline-secondary {
-    border-color: #ffffff; /* Blue color for button borders */
-    color: #04ff00; /* Blue color for button text */
+    border-color: #ffffff;
+    color: #04ff00;
 }
+
 .btn-outline-secondary:hover {
-    background-color: #fbfcff; /* Blue background on hover */
-    color: white; /* White text color on hover */
+    background-color: #fbfcff;
+    color: white;
 }
 
-/* Star rating color adjustments */
 .text-warning {
-    color: #ffcc00; /* Bright yellow for filled stars */
+    color: #ffcc00;
 }
+
 .text-secondary {
-    color: #ddd; /* Light gray for empty stars, less attention-grabbing */
+    color: #ddd;
 }
 
-/* Padding and margins adjustments */
-.pe-md-2, .ps-md-2 {
-    padding-right: 0.5rem; /* Adjust right padding */
-    padding-left: 0.5rem; /* Adjust left padding */
+.pe-md-2,
+.ps-md-2 {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 
-/* Footer styling */
-/* Footer social icons */
 .footer .fa {
     font-size: 24px;
     margin-right: 8px;
-    color: #333; /* Adjust color as needed */
-    background-color: #0D6EFD; /* Blue footer background */
+    color: #333;
+    background-color: #0D6EFD;
 }
-
-
-/* Rating system styling */
 .star {
     cursor: pointer;
-    color: #ddd; /* Default star color */
+    color: #ddd;
 }
-
-/* Highlighted star color */
 .star.rated {
-    color: #ffc107; /* Gold color for rated stars */
+    color: #ffc107;
 }
-    
- 
-
-/* Main content styling */
 .main-content {
-    flex: 1; /* Take up all available space */
-    padding-bottom: 3rem; /* Space for the footer */
+    flex: 1;
+    padding-bottom: 3rem;
 }
-
-/* Card body adjustment for layout */
 .card-body {
     display: flex;
-    flex-direction: row; /* Align items in a row for left to right layout */
-    align-items: center; /* Align items vertically in the center */
+    flex-direction: row;
+    align-items: center;
 }
-.card-body .col-md-4, .card-body .col-md-8 {
-    flex: 1; /* Allow each section to expand */
+
+.card-body .col-md-4,
+.card-body .col-md-8 {
+    flex: 1;
 }
 
 .custom-bg-color {
     background-color: #3590F3;
     transition: background-color 0.3s ease;
-    color: #ffffff; 
+    color: #ffffff;
     text-align: center;
-    line-height: 30px; 
-    height: 30px; 
+    line-height: 30px;
+    height: 30px;
     display: inline;
     text-decoration: none;
-    border: none; 
-    border-radius: 5px; 
-    padding: 0 10px; 
-    font-size: 16px; 
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
     cursor: pointer;
 }
 
 .custom-bg-color:hover {
-    background-color: #3590F3; 
+    background-color: #3590F3;
 }
-

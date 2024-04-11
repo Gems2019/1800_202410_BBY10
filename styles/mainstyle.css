@@ -6,12 +6,12 @@
   background-color: lightblue;
   padding: 20px;
   border-radius: 8px;
-  display: none; /* Hidden by default */
-  z-index: 1000; /* Ensure it appears above other content */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds a shadow for better visibility */
-  text-align: center; /* Ensures the text is centered */
-  max-width: 80%; /* Ensures the message box is not too wide on large screens */
-  word-wrap: break-word; /* Ensures long words do not extend the container */
+  display: none; 
+  z-index: 1000; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center; 
+  max-width: 80%; 
+  word-wrap: break-word;
 }
 
 .container{
@@ -24,16 +24,12 @@ body {
 
   .founding-story-card {
     background: #f8f9fa;
-    /* Light grey background */
     border: none;
-    /* Removes the default card border */
     border-radius: 0.5rem;
-    /* Slightly rounded corners for the card */
   }
 
   .founding-story-card .card-body {
     padding: 2rem;
-    /* Spacious padding for the card content */
   }
 
   .b-example-divider {

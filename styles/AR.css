@@ -1,21 +1,17 @@
 .card {
-    padding-bottom: 15px; /* Adjust this value as needed */
+    padding-bottom: 15px; 
 }
 
 .card-body {
-    padding-bottom: 50px; /* Adjust this value as needed */
+    padding-bottom: 50px; 
 }
 .btn-green {
-    background-color: #28a745; /* Bootstrap's 'success' green */
-    color: white; /* White text color */
-    /* Add other button styling as needed */
+    background-color: #28a745; 
+    color: white; 
 }
 
 .founding-story-card {
     background: #f8f9fa;
-    /* Light grey background */
     border: none;
-    /* Removes the default card border */
     border-radius: 0.5rem;
-    /* Slightly rounded corners for the card */
   }
