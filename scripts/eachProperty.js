@@ -24,7 +24,7 @@ function displayRentalInfo() {
             document.getElementById("rentalCity").innerHTML = rentalCity;
             document.getElementById("rentalDescription").innerHTML = rentalDescription;
             document.getElementById("rentalDetails").innerHTML = rentalDetails;
-            // document.getElementById("rentalisAvailable").innerHTML = rentalisAvailable;
+            document.getElementById("rentalisAvailable").innerHTML = rentalisAvailable;
             document.getElementById("rentalLevel").innerHTML = rentalLevel;
             document.getElementById("rentalProvince").innerHTML = rentalProvince;
             document.getElementById("rentalRcost").innerHTML = rentalRcost;
